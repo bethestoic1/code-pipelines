@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps for AI-assisted development: what to automate | Code Pipelines</title>
+    <meta name="description" content="DevSecOps for AI-assisted development in 2026: what to automate so speed and security stay aligned.">
+    <link rel="canonical" href="https://codepipelines.com/blog/devsecops-ai-development-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codepipelines.com/blog/devsecops-ai-development-2026.html">
+    <meta property="og:title" content="DevSecOps for AI-assisted development: what to automate">
+    <meta property="og:description" content="DevSecOps for AI-assisted development in 2026: what to automate so speed and security stay aligned.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevSecOps for AI-assisted development: what to automate">
+    <meta name="twitter:description" content="DevSecOps for AI-assisted development in 2026: what to automate so speed and security stay aligned.">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus { top: var(--space); }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        nav { margin-top: calc(var(--space) * 2); }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover { color: var(--accent-muted); }
+        main { padding: calc(var(--space) * 4) 0; }
+        article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
+        article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        .cta-box {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 4);
+            margin: calc(var(--space) * 5) 0;
+            border-radius: var(--radius);
+        }
+        .cta-box a { color: var(--accent); font-weight: bold; }
+        .cta-box a:hover { color: var(--accent-muted); }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+    </header>
+    <main id="main">
+        <article>
+            <h1>DevSecOps for AI-assisted development: what to automate</h1>
+            <p class="meta">2026-03-02 · Code Pipelines</p>
+
+            <p>When AI helps write and change code, DevSecOps has to keep up. We cover what to automate first.</p>
+
+            <h2>Where AI-assisted dev changes risk</h2>
+            <p>AI can introduce secrets (e.g. hardcoded keys in suggested code), pull in vulnerable dependencies, or change security-sensitive logic. More code churn means more surface area. So: secret scanning, dependency scanning, and code review (including of AI-proposed changes) need to be automatic and blocking. DevSecOps for AI-assisted dev means "secure by default" in the pipeline, not only in human-written code.</p>
+            <h2>Automation that actually helps</h2>
+            <p>Automate: (1) <strong>Secret scanning</strong> in pre-commit and CI—block merges on detection. (2) <strong>Dependency and SBOM</strong>—fail or warn on known CVEs. (3) <strong>Required review</strong> for all changes, including AI-generated. (4) Optional: SAST or policy checks on diffs. Start with secrets and deps; add the rest as you scale.</p>
+            <h2>Tooling and pipeline patterns</h2>
+            <p>Run the same security steps on every branch: pre-commit hooks for secrets, CI job for dependencies and SBOM, and branch protection requiring review. Use a single pipeline definition (e.g. GitHub Actions, GitLab CI) so you don't have different rules per repo. When you add new AI tools or workflows, ensure their output goes through the same pipeline.</p>
+
+            <div class="cta-box" aria-label="Compare tools">
+                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DevSecOps for AI-assisted development: what to automate",
+        "description": "DevSecOps for AI-assisted development in 2026: what to automate so speed and security stay aligned.",
+        "url": "https://codepipelines.com/blog/devsecops-ai-development-2026.html",
+        "datePublished": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }
+    }
+    </script>
+</body>
+</html>

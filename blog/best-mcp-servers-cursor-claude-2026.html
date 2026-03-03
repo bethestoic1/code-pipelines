@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best MCP servers for Cursor and Claude Code 2026 | Code Pipelines</title>
+    <meta name="description" content="Best MCP servers for Cursor and Claude Code in 2026: extend your AI stack with tools, APIs, and data.">
+    <link rel="canonical" href="https://codepipelines.com/blog/best-mcp-servers-cursor-claude-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codepipelines.com/blog/best-mcp-servers-cursor-claude-2026.html">
+    <meta property="og:title" content="Best MCP servers for Cursor and Claude Code 2026">
+    <meta property="og:description" content="Best MCP servers for Cursor and Claude Code in 2026: extend your AI stack with tools, APIs, and data.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best MCP servers for Cursor and Claude Code 2026">
+    <meta name="twitter:description" content="Best MCP servers for Cursor and Claude Code in 2026: extend your AI stack with tools, APIs, and data.">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus { top: var(--space); }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        nav { margin-top: calc(var(--space) * 2); }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover { color: var(--accent-muted); }
+        main { padding: calc(var(--space) * 4) 0; }
+        article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
+        article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        .cta-box {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 4);
+            margin: calc(var(--space) * 5) 0;
+            border-radius: var(--radius);
+        }
+        .cta-box a { color: var(--accent); font-weight: bold; }
+        .cta-box a:hover { color: var(--accent-muted); }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+    </header>
+    <main id="main">
+        <article>
+            <h1>Best MCP servers for Cursor and Claude Code 2026</h1>
+            <p class="meta">2026-03-02 · Code Pipelines</p>
+
+            <p>MCP lets Cursor and Claude Code call tools and data. We list MCP servers that are worth adding in 2026.</p>
+
+            <h2>What MCP adds to your stack</h2>
+            <p><strong>MCP</strong> (Model Context Protocol) is an open protocol that lets AI assistants like Cursor and Claude Code call external “servers” for tools and data. Instead of the model only seeing your code and chat, it can query databases, hit APIs, read docs, or run approved actions. That means fewer context switches for you and more accurate answers (e.g. “what’s the schema for table X?” from a real DB). MCP is supported by Anthropic, Cursor, and a growing ecosystem—including tools like BrainGrid that integrate with Cursor and Claude Code.</p>
+            <h2>Servers we use and recommend</h2>
+            <p><strong>Filesystem / repo:</strong> Servers that expose the repo, grep, or file search so the model can navigate large codebases. Often built-in or available as community servers.</p>
+            <p><strong>Database:</strong> MCP servers that connect to PostgreSQL, MySQL, or SQLite and expose schema and safe read queries so the AI can answer “what columns does this table have?” or “show me a sample query.”</p>
+            <p><strong>APIs and docs:</strong> Servers that wrap internal or external APIs (REST, GraphQL) or documentation so the model can look up endpoints and payloads instead of hallucinating.</p>
+            <p><strong>Time, fetch, and utilities:</strong> Simple servers for date/time, fetching URLs, or running sandboxed commands. Useful for automation and scripting tasks.</p>
+            <p>BrainGrid supports MCP and is built for Cursor and Claude Code users—worth adding if you want a tighter loop between your IDE/CLI and external tools.</p>
+            <h2>How to add and configure them</h2>
+            <p>In <strong>Cursor</strong>, MCP servers are configured in settings (e.g. JSON or UI). You specify the server command or URL and any env vars; Cursor then lets the model call that server’s tools. In <strong>Claude Code CLI</strong>, you configure MCP in the CLI config file so Claude can use the same servers. Start with one server (e.g. filesystem or a single API), verify the model can call it, then add more. Use env vars for secrets (DB URLs, API keys) and never put them in the config in plain text.</p>
+
+            <div class="cta-box" aria-label="Compare tools">
+                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Best MCP servers for Cursor and Claude Code 2026",
+        "description": "Best MCP servers for Cursor and Claude Code in 2026: extend your AI stack with tools, APIs, and data.",
+        "url": "https://codepipelines.com/blog/best-mcp-servers-cursor-claude-2026.html",
+        "datePublished": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }
+    }
+    </script>
+</body>
+</html>

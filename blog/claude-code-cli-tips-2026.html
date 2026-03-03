@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code CLI tips and workflows for 2026 | Code Pipelines</title>
+    <meta name="description" content="Claude Code CLI tips and workflows for 2026: get the most from terminal-first agentic coding.">
+    <link rel="canonical" href="https://codepipelines.com/blog/claude-code-cli-tips-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codepipelines.com/blog/claude-code-cli-tips-2026.html">
+    <meta property="og:title" content="Claude Code CLI tips and workflows for 2026">
+    <meta property="og:description" content="Claude Code CLI tips and workflows for 2026: get the most from terminal-first agentic coding.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claude Code CLI tips and workflows for 2026">
+    <meta name="twitter:description" content="Claude Code CLI tips and workflows for 2026: get the most from terminal-first agentic coding.">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus { top: var(--space); }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        nav { margin-top: calc(var(--space) * 2); }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover { color: var(--accent-muted); }
+        main { padding: calc(var(--space) * 4) 0; }
+        article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
+        article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        .cta-box {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 4);
+            margin: calc(var(--space) * 5) 0;
+            border-radius: var(--radius);
+        }
+        .cta-box a { color: var(--accent); font-weight: bold; }
+        .cta-box a:hover { color: var(--accent-muted); }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+    </header>
+    <main id="main">
+        <article>
+            <h1>Claude Code CLI tips and workflows for 2026</h1>
+            <p class="meta">2026-03-02 · Code Pipelines</p>
+
+            <p>Claude Code CLI is powerful when you know the patterns. We share tips and workflows we use in 2026.</p>
+
+            <h2>Install and first run</h2>
+            <p>Install Claude Code CLI via the official installer (see Anthropic's docs). Authenticate with your Anthropic key. In a project directory, run the CLI command and start with a simple prompt: "What's in this repo?" or "Add a README section for setup." You'll see it read files and optionally edit; get comfortable with the diff-and-apply flow before bigger tasks.</p>
+            <h2>Workflows that save time</h2>
+            <p>Use it for <strong>one-off scripts</strong> ("write a script that renames all X to Y"), <strong>migrations</strong> ("add a column and backfill"), and <strong>refactors</strong> ("extract this into a shared util"). Give one clear goal per run. Use MCP servers if you need DB or API context. Keep prompts focused so the model doesn't wander.</p>
+            <h2>Integrating with Cursor and the rest of the stack</h2>
+            <p>Use Claude Code for terminal-centric work and Cursor for IDE work; they share the same repo. Add MCP and project docs so both have context. Tools like BrainGrid are built for Cursor and Claude Code users and can help you keep a single, consistent workflow across both.</p>
+
+            <div class="cta-box" aria-label="Compare tools">
+                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Claude Code CLI tips and workflows for 2026",
+        "description": "Claude Code CLI tips and workflows for 2026: get the most from terminal-first agentic coding.",
+        "url": "https://codepipelines.com/blog/claude-code-cli-tips-2026.html",
+        "datePublished": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }
+    }
+    </script>
+</body>
+</html>

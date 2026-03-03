@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevEx stack 2026: agentic workflows and modern tooling | Code Pipelines</title>
+    <meta name="description" content="Build your 2026 DevEx stack: agentic workflows, Cursor, Claude Code, and tooling that keeps architectural integrity.">
+    <link rel="canonical" href="https://codepipelines.com/blog/devex-stack-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codepipelines.com/blog/devex-stack-2026.html">
+    <meta property="og:title" content="DevEx stack 2026: agentic workflows and modern tooling">
+    <meta property="og:description" content="Build your 2026 DevEx stack: agentic workflows, Cursor, Claude Code, and tooling that keeps architectural integrity.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevEx stack 2026: agentic workflows and modern tooling">
+    <meta name="twitter:description" content="Build your 2026 DevEx stack: agentic workflows, Cursor, Claude Code, and tooling that keeps architectural integrity.">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus { top: var(--space); }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        nav { margin-top: calc(var(--space) * 2); }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover { color: var(--accent-muted); }
+        main { padding: calc(var(--space) * 4) 0; }
+        article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
+        article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        .cta-box {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 4);
+            margin: calc(var(--space) * 5) 0;
+            border-radius: var(--radius);
+        }
+        .cta-box a { color: var(--accent); font-weight: bold; }
+        .cta-box a:hover { color: var(--accent-muted); }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+    </header>
+    <main id="main">
+        <article>
+            <h1>DevEx stack 2026: agentic workflows and modern tooling</h1>
+            <p class="meta">2026-03-02 · Code Pipelines</p>
+
+            <p>Developer experience in 2026 means agentic workflows, clear tool choices, and pipelines that don’t get in the way. We outline a practical stack.</p>
+
+            <h2>What belongs in a 2026 DevEx stack</h2>
+            <p>A 2026 DevEx stack should include: (1) an <strong>AI-native IDE or CLI</strong> with agentic support (multi-file, terminal, optional MCP). (2) <strong>Context and rules</strong>—project rules, docs, and codebase access so the AI behaves consistently. (3) <strong>Diff-based review</strong> so changes are proposed, not applied blindly. (4) <strong>Security in the pipeline</strong>—secret scanning and dependency checks in CI. (5) <strong>Onboarding</strong>—docs and tooling so new devs reach first commit in hours, not weeks.</p>
+            <h2>Agentic tooling: Cursor, Claude Code, and more</h2>
+            <p>Core choices: <strong>Cursor</strong> (IDE, Agent mode, credits) for day-to-day coding and feature work; <strong>Claude Code CLI</strong> for terminal-first tasks and automation; <strong>GitHub Copilot</strong> or <strong>Windsurf</strong> if you prefer plugins or need different pricing. Add <strong>MCP</strong> servers for DB, APIs, and docs. Tools like <strong>BrainGrid</strong> are built for Cursor and Claude Code users and help you ship faster without switching stacks.</p>
+            <h2>Security and CI/CD in the loop</h2>
+            <p>Agentic dev moves fast—so pipelines must catch secrets and vulnerable dependencies. Run secret scanning (e.g. pre-commit and in CI) and dependency/SBOM checks on every branch. Use branch protection and required reviews so AI-proposed changes are reviewed before merge. That keeps DevEx high and risk under control.</p>
+
+            <div class="cta-box" aria-label="Compare tools">
+                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DevEx stack 2026: agentic workflows and modern tooling",
+        "description": "Build your 2026 DevEx stack: agentic workflows, Cursor, Claude Code, and tooling that keeps architectural integrity.",
+        "url": "https://codepipelines.com/blog/devex-stack-2026.html",
+        "datePublished": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }
+    }
+    </script>
+</body>
+</html>
