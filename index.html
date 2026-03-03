@@ -4,25 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Pipelines | 2026 AI-Native Developer Experience (DevEx)</title>
+    <meta name="description" content="Compare Cursor vs Copilot, master agentic workflows, and build the 2026 DevEx stack. AI-native developer tooling, CI/CD, and security-first pipelines.">
+    <link rel="canonical" href="https://codepipelines.com/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codepipelines.com/">
+    <meta property="og:title" content="Code Pipelines | 2026 AI-Native Developer Experience (DevEx)">
+    <meta property="og:description" content="Compare Cursor vs Copilot, master agentic workflows, and build the 2026 DevEx stack. AI-native developer tooling, CI/CD, and security-first pipelines.">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Code Pipelines | 2026 AI-Native Developer Experience (DevEx)">
+    <meta name="twitter:description" content="Compare Cursor vs Copilot, master agentic workflows, and build the 2026 DevEx stack. AI-native developer tooling, CI/CD, and security-first pipelines.">
     <style>
-        body { font-family: 'Courier New', Courier, monospace; line-height: 1.6; color: #33ff33; max-width: 900px; margin: 0 auto; padding: 20px; background: #0d0d0d; }
-        header { border-bottom: 1px solid #33ff33; padding: 40px 0; text-align: left; }
-        .prompt-cursor { animation: blink 1s infinite; border-right: 10px solid #33ff33; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .card { border: 1px solid #33ff33; padding: 20px; border-radius: 4px; }
-        h2, h3 { color: #fff; text-transform: uppercase; }
-        .tag { background: #33ff33; color: #000; padding: 2px 8px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        footer { margin-top: 60px; color: #666; font-size: 0.8em; }
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus {
+            top: var(--space);
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header {
+            border-bottom: 1px solid var(--accent);
+            padding: 40px 0;
+            text-align: left;
+        }
+        nav {
+            margin-top: calc(var(--space) * 2);
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover {
+            color: var(--accent-muted);
+        }
+        .prompt-cursor {
+            animation: blink 1s infinite;
+            border-right: 10px solid var(--accent);
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .cta-wrap {
+            margin: calc(var(--space) * 4) 0;
+        }
+        .cta {
+            display: inline-block;
+            padding: 14px 24px;
+            min-height: 44px;
+            min-width: 44px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .cta:hover {
+            background: var(--accent-muted);
+            color: #000;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--space) * 4);
+            margin-top: calc(var(--space) * 5);
+        }
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 3);
+            border-radius: var(--radius);
+        }
+        h1, h2, h3 {
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .tag {
+            background: var(--accent);
+            color: #000;
+            padding: 4px 10px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
+            border-radius: var(--radius);
+        }
+        .blueprint {
+            margin-top: calc(var(--space) * 5);
+            padding: calc(var(--space) * 4);
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+        }
+        .blueprint ul {
+            margin: calc(var(--space) * 2) 0 0;
+            padding-left: 1.25rem;
+        }
+        .blueprint li {
+            margin-bottom: calc(var(--space) * 2);
+        }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a {
+            color: var(--accent);
+        }
+        footer a:hover {
+            color: var(--accent-muted);
+        }
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header>
         <h1>CODE_PIPELINES v2.026<span class="prompt-cursor"></span></h1>
         <p>Mastering the Human-AI Orchestration Era</p>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+        <div class="cta-wrap">
+            <a href="/blog/cursor-vs-copilot-2026.html" class="cta">Compare AI coding tools 2026 →</a>
+        </div>
     </header>
 
-    <main>
+    <main id="main">
         <div class="grid">
             <div class="card">
                 <span class="tag">AGENT_MODE</span>
@@ -36,8 +194,8 @@
             </div>
         </div>
 
-        <section style="margin-top: 40px;">
-            <h2>The 2026 Developer Blueprint</h2>
+        <section class="blueprint" aria-labelledby="blueprint-heading">
+            <h2 id="blueprint-heading">The 2026 Developer Blueprint</h2>
             <ul>
                 <li><strong>Diff-Based Workflows:</strong> Moving away from "blind rewrites" to controlled, proposed patches.</li>
                 <li><strong>Onboarding Revolution:</strong> Reducing time-to-first-commit from weeks to hours using contextual AI context windows.</li>
@@ -47,7 +205,20 @@
     </main>
 
     <footer>
-        &copy; 2026 CodePipelines.com | Asset Node #02 | Retirement Portfolio
+        <p>&copy; 2026 CodePipelines.com | Asset Node #02 | Retirement Portfolio</p>
+        <p><a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <!-- Replace the BrainGrid href below with your creator link from https://www.braingrid.ai/creators -->
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://www.braingrid.ai/">BrainGrid</a>.</p>
     </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Code Pipelines",
+        "url": "https://codepipelines.com/",
+        "description": "2026 AI-Native Developer Experience (DevEx). Compare Cursor vs Copilot, agentic workflows, and security-first pipelines."
+    }
+    </script>
 </body>
 </html>

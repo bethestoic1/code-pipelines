@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security-first CI/CD: secret scanning and dependency checks in 2026 | Code Pipelines</title>
+    <meta name="description" content="Security-first CI/CD in 2026: automate secret scanning and dependency checks in every branch and pipeline.">
+    <link rel="canonical" href="https://codepipelines.com/blog/security-first-cicd-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codepipelines.com/blog/security-first-cicd-2026.html">
+    <meta property="og:title" content="Security-first CI/CD: secret scanning and dependency checks in 2026">
+    <meta property="og:description" content="Security-first CI/CD in 2026: automate secret scanning and dependency checks in every branch and pipeline.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security-first CI/CD: secret scanning and dependency checks in 2026">
+    <meta name="twitter:description" content="Security-first CI/CD in 2026: automate secret scanning and dependency checks in every branch and pipeline.">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #33ff33;
+            --accent-muted: #2acc2a;
+            --muted: #888;
+            --space: 8px;
+            --radius: 4px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space);
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: var(--radius);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .skip-link:focus { top: var(--space); }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1rem, 2vw + 0.9rem, 1.125rem);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        nav { margin-top: calc(var(--space) * 2); }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: calc(var(--space) * 3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        nav a:hover { color: var(--accent-muted); }
+        main { padding: calc(var(--space) * 4) 0; }
+        article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
+        article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        .cta-box {
+            border: 1px solid var(--accent);
+            padding: calc(var(--space) * 4);
+            margin: calc(var(--space) * 5) 0;
+            border-radius: var(--radius);
+        }
+        .cta-box a { color: var(--accent); font-weight: bold; }
+        .cta-box a:hover { color: var(--accent-muted); }
+        footer {
+            margin-top: calc(var(--space) * 8);
+            padding-top: calc(var(--space) * 3);
+            border-top: 1px solid var(--muted);
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+        </nav>
+    </header>
+    <main id="main">
+        <article>
+            <h1>Security-first CI/CD: secret scanning and dependency checks in 2026</h1>
+            <p class="meta">2026-03-02 · Code Pipelines</p>
+
+            <p>AI-assisted dev moves fast; pipelines need to catch secrets and vulnerable deps. We outline a security-first CI/CD setup.</p>
+
+            <h2>Why security belongs in every pipeline</h2>
+            <p>AI-assisted dev means more code churn and more chances for secrets or bad dependencies to slip in. Every branch should run <strong>secret scanning</strong> (keys, tokens, credentials) and <strong>dependency/SBOM checks</strong> before merge. That way you catch issues at PR time, not in production. Security-first CI/CD isn't optional when AI is writing and changing code at scale.</p>
+            <h2>Secret scanning: tools and integration</h2>
+            <p>Run a secret scanner (e.g. GitGuardian, Gitleaks, or your provider's native tool) in pre-commit hooks and in CI. Block merges when secrets are detected. Scan both committed files and (where possible) diff output from AI tools. Integrate with your existing CI so every PR gets the same checks.</p>
+            <h2>Dependency and SBOM checks</h2>
+            <p>Use dependency scanning (e.g. Snyk, Dependabot, or npm audit / equivalent) and generate an SBOM (software bill of materials) in CI. Fail or warn on known vulnerabilities above a threshold. When AI suggests new dependencies, the pipeline should catch risky or outdated packages before they land.</p>
+
+            <div class="cta-box" aria-label="Compare tools">
+                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Security-first CI/CD: secret scanning and dependency checks in 2026",
+        "description": "Security-first CI/CD in 2026: automate secret scanning and dependency checks in every branch and pipeline.",
+        "url": "https://codepipelines.com/blog/security-first-cicd-2026.html",
+        "datePublished": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }
+    }
+    </script>
+</body>
+</html>
