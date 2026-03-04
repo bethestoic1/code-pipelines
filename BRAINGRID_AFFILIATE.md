@@ -39,17 +39,23 @@ No further link replacement needed. For new posts, keep the same CTA: “We reco
 ### Top affiliate plays (codepipelines.com now)
 
 1. **BrainGrid** — 15% recurring; Cursor/Claude Code; **live sitewide** ✅  
-2. **Tabnine** — Apply when traffic grows; fits “Tabnine vs Cursor”, “VS Code AI extensions”.  
-3. **Cursor Ambassador** — No direct cash; use for credibility, monetize via BrainGrid + comparisons.  
-4. **Hosting (Kinsta/Cloudways)** — When you expand “best hosting for developers”, “deploy AI apps”.  
-5. **Security (Snyk, GitGuardian)** — When you deepen security/DevSecOps content.
+2. **DigitalOcean** — 10% recurring for 12 months; **priority for deploy/hosting content.** Apply and use DO link in “deploy on DigitalOcean” articles (see Content plan #29–31).  
+3. **Vultr** — **Live.** Referral: $10 per paid signup (standard) or **Give $300, Get $100** (limited-time promo). Referred users must be active 30+ days and use ≥$100 to count. Payouts 1st and 15th of each month. Use in same deploy/cloud content as DO (#29, #31, deploy AI apps). See “Vultr referral” section below.  
+5. **Tabnine** — Applied; **approval/referral link difficult** (partners page is B2B; email/chats may or may not yield creator link). Keep mentioning Tabnine in content for SEO; add affiliate link only if/when approved.  
+6. **Vercel** — Applied via partners form (Primary interest: Register a referral); **approval uncertain.** Same as Tabnine: keep in content where relevant, add link if approved.  
+7. **Cursor Ambassador** — No direct cash; use for credibility, monetize via BrainGrid + comparisons.  
+8. **Hosting (Kinsta/Cloudways)** — When you expand “best hosting for developers”, “deploy AI apps”.  
+9. **Security (Snyk, GitGuardian)** — When you deepen security/DevSecOps content.
+
+**Strategy note (Tabnine/Vercel difficulties):** We are having difficulties getting affiliate/referral approvals from Tabnine and Vercel (B2B-focused programs, creator track unclear). **Focus on content where readers deploy on DigitalOcean and Vultr**; we have a live Vultr referral link (no approval needed). Monetize deploy/cloud content with DO + Vultr; add Tabnine/Vercel links only if approved later.
 
 ### Monetization strategy
 
 1. **Traffic first** — Expand Tier 1–2 article **bodies** (most posts are scaffolded; add 1.5–2.5k words to comparisons).  
 2. **BrainGrid is live** — Every post already has the CTA; focus on quality and internal links.  
-3. **Apply for Tabnine** (and optionally Cursor Ambassador) as you hit ~500+ sessions/mo.  
-4. **Optional** — Security/hosting articles when you have or plan those affiliate programs.
+3. **Deploy/hosting: DigitalOcean + Vultr** — Get DO affiliate approval; **Vultr link is already live.** Create/expand content where readers deploy on DO or Vultr (multi-agent cloud, deploy AI apps, serverless agentic pipelines) and use both DO and Vultr referral links in #29, #31, and deploy-AI-apps post. Don’t depend on Tabnine/Vercel approvals.  
+4. **Tabnine/Vercel** — Already applied; add links only if approved. Keep mentioning in content for SEO and usefulness.  
+5. **Optional** — Security/hosting articles when you have or plan those affiliate programs (Snyk, GitGuardian, Kinsta, Cloudways).
 
 ### Passive income projection (realistic)
 
@@ -65,7 +71,7 @@ No further link replacement needed. For new posts, keep the same CTA: “We reco
 | 1 | **Expand 2–3 Tier 1 article bodies** (e.g. Cursor vs Copilot, Best AI coding assistant, Cursor pricing) to 1,500–2,500 words with real comparison tables, “Our pick”, and internal links | Drives rankings and conversions; they already have the BrainGrid CTA. |
 | 2 | **Internal linking** — Add “Related: [Best AI coding assistant](…), [Cursor pricing](…)” in each post and from homepage to top 3 posts | Better crawl and session depth. |
 | 3 | **Submit sitemap / verify coverage** — Ensure all blog URLs are in sitemap and indexed | Discovery. |
-| 4 | **Apply Tabnine (and optionally Cursor Ambassador)** when you have a few hundred sessions/mo | More affiliate options for same audience. |
+| 4 | **Get DigitalOcean affiliate + add DO link** to deploy/hosting content (#29–31, deploy AI apps) | Reliable recurring; Tabnine/Vercel approvals difficult. |
 | 5 | **Add 1–2 Tier 2 deep-dives** — e.g. “Agentic workflows Cursor Claude” or “DevEx stack 2026” as full articles | Locks in topical authority and BrainGrid conversions. |
 
 **Single next step:** Pick one Tier 1 post (e.g. **Cursor vs Copilot** or **Best AI coding assistant 2026**), expand it to 1,500+ words with concrete comparison and “Our take”, and add 2–3 internal links to other blog posts.
@@ -116,12 +122,34 @@ Future articles: same CTA box; generator already uses the affiliate link.
 
 **Verdict: yes — use the Replit referral where Replit is the honest recommendation.** Same DevEx/AI-coding audience; no conflict with BrainGrid (browser/learning vs desktop/serious dev). Replit pays **$10 in Replit credits** per paying referral (one-time, not recurring); you and the referred user both get $10. So it’s supplementary to BrainGrid, not a replacement. Priority stays: BrainGrid (recurring) > Tabnine > Replit (credits).
 
-**Where to use (once you have the link):**
-- **Replit AI vs Cursor 2026** — Link the first “Replit” in the body and add a short CTA where you say Replit is ideal for learning (e.g. “Try Replit →” with referral link; reader gets $10 credits).
-- **Deploying AI apps: Cursor/Replit to production** — Link “Replit’s deploy” or the first “Replit” to the referral.
-- **Lovable vs Cursor** — Optional: one “Replit” mention could link to referral if it fits the sentence.
-- **Future posts** — Any “best for learning / browser IDE / quick prototypes” angle: use Replit referral when you recommend Replit.
+**Where it’s used (live):**
+- **Replit AI vs Cursor 2026** — First “Replit” in body + “Try Replit →” CTA (reader gets $10 credits).
+- **Deploying AI apps: Cursor/Replit to production** — Replit and Replit’s deploy links.
+- **Lovable vs Cursor** — One “Replit” mention linked to referral.
+- **Future posts** — Use same link for any “best for learning / browser IDE / quick prototypes” Replit recommendation; generator uses `REPLIT_REFERRAL_URL`.
 
-**How to get the link:** [Replit Referral](https://replit.com/refer) or Replit account settings. Document the URL here once you have it so the generator and future edits can use it.
+**Live link (sitewide):** `https://replit.com/refer/bethestoic1` — used in Replit AI vs Cursor, Deploy AI apps, Lovable vs Cursor, and generator.
 
-**Live link (sitewide):** We use `https://replit.com/refer` in the posts below. When you have a personalized referral link (e.g. `https://replit.com/refer?ref=YOUR_ID`), replace it sitewide via search-replace.
+---
+
+## Udemy referral (learning-path content)
+
+**Offer:** Give 20%, Get 20% on Udemy Personal Plan (year’s subscription, unlimited access to 26K+ courses). Terms apply.
+
+**Live link:** `https://refer.udemy.com/bethestoic1!bf999b8a03!a?locale=en`
+
+**Where to use:** Tier 3 add-ons #32–33 (Best Udemy courses for agentic coding 2026, From AI assistant to full orchestrator: 2026 learning path) and any post that recommends courses or “level up with a course” — e.g. “Enroll via my link and you both save 20% on Udemy Personal Plan” or “Level up with Udemy [aff link].” Generator: `UDEMY_REFERRAL_URL` for future learning-path articles.
+
+---
+
+## Vultr referral (deploy/cloud content)
+
+**Program:** [Vultr Referral Program](https://www.vultr.com/company/referral-program/). No approval needed — sign up, get link from customer portal. Tell a friend: earn up to **$100** per verified referral (or **$10** per paid signup on standard offer). Referred users get **$300** to test (promo); must be active 30+ days and use ≥$100 in payments to count. Payouts on business day after 1st and 15th of each month.
+
+**Live links:**
+- **Standard ($10 per paid signup):** `https://www.vultr.com/?ref=9876694`
+- **Promo (Give $300, Get $100 — limited time):** `https://www.vultr.com/?ref=9876695-9J`
+
+Use the promo link in CTAs while available; switch to standard link when promo ends. Generator: `VULTR_REFERRAL_URL` (set to promo or standard as needed).
+
+**Where to use:** Same deploy/cloud content as DigitalOcean — Content plan #29 (Best cloud for multi-agent AI 2026), #31 (Serverless/managed for agentic pipelines), and “Deploying AI apps: Cursor/Replit to production.” Compare DO vs Vultr and link both; e.g. “Try Vultr [aff link]” or “Spin up a VPS on Vultr [aff link].”

@@ -94,5 +94,58 @@ Use this list to pick articles that attract the same audience (developers using 
 2. **Tier 2** (9–14) — agentic content locks in the same audience and supports BrainGrid.
 3. **Tier 3** (15–19) — how-to and onboarding round out the blog and internal links.
 4. **Tiers 4–6** — add when you want to expand into security, hosting, or MCP and have (or plan to get) those affiliate programs.
+5. **Tier 5 add-ons (29–31)** — DigitalOcean/Vercel/Vultr for recurring hosting income; apply DO first.
+6. **Tier 3 add-ons (32–33)** — Udemy learning-path content for agentic/course referrals.
+7. **Optional (34–35)** — Benchmark and production multi-agent posts for traffic + BrainGrid.
 
 This list gives you a long backlog of content that attracts users and traffic you can monetize with affiliate links.
+
+---
+
+## Affiliate analyst take (new ideas — early 2026)
+
+**Cloud & hosting:** Prioritize **DigitalOcean** — 10% recurring for 12 months on referred spend is one of the strongest dev-creator plays. Content like “Best cloud platforms for multi-agent AI workflows 2026” (DO vs Vultr, etc.) fits the site theme (agentic, scaling agents) and drives recurring passive. Add **Vercel** (v0, Next.js, deploy AI-generated front-ends) for ambassador/lead referrals ($5–30); **Vultr** for high one-time payouts ($100) in the same comparison. These expand Tier 5 with *recurring-first* hosting affiliates alongside Kinsta/Cloudways.
+
+**AI coding benchmarks / multi-agent:** “Cursor vs Claude Code vs Copilot Agent mode: 2026 benchmarks” and “Production-grade multi-agent systems with top AI tools” align with existing Tier 1–2. Cursor/Claude have no open affiliate programs — use for traffic and BrainGrid conversions; pair learning content with **Udemy** (15–50% on courses) for indirect monetization.
+
+**Learning & upskilling:** **Udemy** is a strong add for the “onboarding revolution” angle. Articles like “Best Udemy courses for agentic coding & AI tools 2026” and “From AI assistant to full orchestrator: 2026 learning path” convert well with “Enroll via my link for discounts” CTAs. Add to Tier 3 as learning-path content.
+
+**Security/agentic pipelines:** “Top tools for automated secret scanning & dependency validation in agentic branches” fits existing Tier 4; monetize via PartnerStack/B2B or tie to hosting (e.g. DO) until Snyk/GitGuardian are live.
+
+**Quick wins:** (1) Launch with DigitalOcean + one Udemy learning piece — highest recurring potential. (2) One honest “I deployed a 5-agent setup on DO — cost breakdown” style post with affiliate link. (3) Track “best cloud for AI agents 2026” and “best Udemy agentic coding 2026” type queries.
+
+---
+
+## Tier 5 add-ons — Cloud for AI/agentic (recurring-first)
+
+| # | Title idea | Target query | Affiliate |
+|---|------------|--------------|-----------|
+| 29 | Best cloud platforms for multi-agent AI workflows 2026 (DigitalOcean, Vultr, etc.) | best cloud for AI agents 2026, host agent orchestrator | **DigitalOcean** (10% recurring 12 mo), **Vultr** (live: $10 or $100/referral) ✅ |
+| 30 | Vercel vs alternatives for deploying AI-generated front-ends and agentic apps 2026 | vercel vs netlify AI apps, deploy v0 next.js | Vercel Ambassador ($5–30/referral), credits |
+| 31 | Serverless and managed hosting for security-first agentic pipelines | serverless agentic pipelines, auto-scale agents | DigitalOcean, **Vultr** ✅ |
+
+*Apply for DigitalOcean affiliate; **Vultr referral link is live** (BRAINGRID_AFFILIATE.md; `VULTR_REFERRAL_URL`). Use in CTAs like “Scale your agents with DigitalOcean [aff link]” in deploy/agent articles (“Scale your agents with DigitalOcean [aff link]” and “Try Vultr [aff link]”). Tabnine/Vercel: add links only if approved.*
+
+**Content ideas using Vultr:** #29 — DO vs Vultr comparison, link both. #31 — Include Vultr; link Vultr. Deploying AI apps — add “Or spin up a VPS on Vultr [aff link].” Optional: “DigitalOcean vs Vultr for developers 2026.”
+
+---
+
+## Tier 3 add-ons — Learning & upskilling (Udemy)
+
+| # | Title idea | Target query | Affiliate |
+|---|------------|--------------|-----------|
+| 32 | Best Udemy courses for agentic coding and AI tools 2026 | best Udemy AI coding course, Cursor Claude course 2026 | **Udemy** (15–50% on courses / subs / deals) |
+| 33 | From AI assistant to full orchestrator: 2026 learning path | agentic coding learning path, time to first commit AI | Udemy, BrainGrid (stack) |
+
+*CTA: “Level up with this Udemy course on Cursor/agentic workflows [aff link]” or “Enroll via my link for discounts.”*
+
+---
+
+## Optional — Benchmarks & production multi-agent (traffic + BrainGrid)
+
+| # | Title idea | Target query | Affiliate |
+|---|------------|--------------|-----------|
+| 34 | Cursor vs Claude Code vs Copilot Agent mode: 2026 benchmarks for agentic coding | cursor vs claude vs copilot 2026 benchmarks | BrainGrid (no direct Cursor/Claude affiliate) |
+| 35 | How to build production-grade multi-agent systems with top AI tools | production multi-agent systems AI tools 2026 | BrainGrid; pair with Udemy course links |
+
+*Use for authority and search volume; monetize via BrainGrid and Udemy where relevant.*

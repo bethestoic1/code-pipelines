@@ -7,8 +7,12 @@ import re
 BASE = "https://codepipelines.com/blog"
 BLOG_DIR = os.path.join(os.path.dirname(__file__), "..", "blog")
 DATE = "2026-03-02"
-# Replit referral: use when recommending Replit (learning, browser IDE, deploy). Replace with personalized link when you have it (see BRAINGRID_AFFILIATE.md).
-REPLIT_REFERRAL_URL = "https://replit.com/refer"
+# Replit referral: use when recommending Replit (learning, browser IDE, deploy). See BRAINGRID_AFFILIATE.md.
+REPLIT_REFERRAL_URL = "https://replit.com/refer/bethestoic1"
+# Udemy referral: Give 20%, Get 20% on Udemy Personal Plan. Use in learning-path / course recommendation content. See BRAINGRID_AFFILIATE.md.
+UDEMY_REFERRAL_URL = "https://refer.udemy.com/bethestoic1!bf999b8a03!a?locale=en"
+# Vultr referral: $10 per paid signup (standard) or Give $300 Get $100 (promo, limited time). Use in deploy/cloud content (#29, #31, deploy AI apps). See BRAINGRID_AFFILIATE.md.
+VULTR_REFERRAL_URL = "https://www.vultr.com/?ref=9876695-9J"  # Promo link; use ref=9876694 for standard when promo ends
 
 STYLES = """        :root {
             --bg: #0d0d0d;
@@ -88,9 +92,10 @@ NAV = """        <nav aria-label="Main">
 
 RELATED = '''            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>.</p>
 '''
+# Use rel="noopener noreferrer" on external affiliate links (security + best practice).
 CTA = """            <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
             </div>"""
 
 def slugify(title):
@@ -264,7 +269,9 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a> · <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a> · <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
