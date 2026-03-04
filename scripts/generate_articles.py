@@ -7,6 +7,8 @@ import re
 BASE = "https://codepipelines.com/blog"
 BLOG_DIR = os.path.join(os.path.dirname(__file__), "..", "blog")
 DATE = "2026-03-02"
+# Replit referral: use when recommending Replit (learning, browser IDE, deploy). Replace with personalized link when you have it (see BRAINGRID_AFFILIATE.md).
+REPLIT_REFERRAL_URL = "https://replit.com/refer"
 
 STYLES = """        :root {
             --bg: #0d0d0d;
@@ -84,9 +86,11 @@ NAV = """        <nav aria-label="Main">
             <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
         </nav>"""
 
+RELATED = '''            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>.</p>
+'''
 CTA = """            <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>"""
 
 def slugify(title):
@@ -255,6 +259,7 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
 
 {body_sections}
 
+{RELATED}
 {CTA}
         </article>
     </main>
@@ -270,6 +275,12 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
         "description": "{escape_json(meta_desc)}",
         "url": "{url}",
         "datePublished": "{DATE}",
+        "dateModified": "{DATE}",
+        "author": {{
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        }},
         "publisher": {{
             "@type": "Organization",
             "name": "Code Pipelines",

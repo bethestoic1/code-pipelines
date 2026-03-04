@@ -2,7 +2,7 @@
 
 **Status:** All 28 articles from this plan are created as blog pages. Each has meta, intro, section placeholders, and the BrainGrid CTA. Expand section content over time and replace placeholder BrainGrid URLs with your creator link.
 
-Use this list to pick articles that attract the same audience (developers using Cursor, Claude Code, Replit, Windsurf, etc.) and support affiliate links. Add a CTA in every post: “We recommend BrainGrid for Cursor/Claude Code users. [Try BrainGrid →]” (and other affiliates where noted).
+Use this list to pick articles that attract the same audience (developers using Cursor, Claude Code, Replit, Windsurf, etc.) and support affiliate links. Add a CTA in every post: “We recommend BrainGrid for Cursor/Claude Code users. [Try BrainGrid →]” (and other affiliates where noted). When recommending Replit (learning, browser IDE, deploy), use the Replit referral link (BRAINGRID_AFFILIATE.md; REPLIT_REFERRAL_URL in scripts/generate_articles.py).
 
 ---
 
