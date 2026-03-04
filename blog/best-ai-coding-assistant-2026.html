@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -87,11 +90,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -118,21 +123,26 @@
                     <tr><td>Tabnine</td><td>Plugin / platform</td><td>~$39–59/user/mo</td><td>Yes (agentic tier)</td><td>Privacy, on-prem, compliance</td></tr>
                 </tbody>
             </table>
+            <h2>Pricing and IDE fit in detail</h2>
+            <p><strong>Cursor</strong> and <strong>Windsurf</strong> are full IDEs: you work inside their app, with AI built in. <strong>Claude Code</strong> is CLI-only—ideal for terminal workflows and automation. <strong>GitHub Copilot</strong> and <strong>Tabnine</strong> plug into your existing editor (VS Code, JetBrains, Neovim), so you keep your setup and add AI. Cursor uses credits (usage-based); Copilot and Windsurf offer flat per-seat pricing. Tabnine is premium-priced and targets enterprises that need on-prem or strict data controls. For a head-to-head on the two most compared options, see <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>; for credit details, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>.</p>
             <h2>Our picks by use case</h2>
-            <p><strong>Best all-in-one agentic IDE:</strong> Cursor. Agent mode, codebase awareness, and a single place for coding and AI. Pair with a tool like BrainGrid to tighten the loop.</p>
+            <p><strong>Best all-in-one agentic IDE:</strong> Cursor. Agent mode, codebase awareness, and a single place for coding and AI. Pair with a tool like <a href="https://braingrid.link/stoic">BrainGrid</a> to tighten the loop.</p>
             <p><strong>Best for terminal and automation:</strong> Claude Code CLI. Fast for one-off tasks and scripts without opening an IDE.</p>
             <p><strong>Best for GitHub-native teams:</strong> GitHub Copilot. Predictable per-seat pricing and tight integration with GitHub.</p>
             <p><strong>Best for privacy and on-prem:</strong> Tabnine. Enterprise controls and deployment options.</p>
-            <p>If you’re already on Cursor or Claude Code, we recommend adding <a href="https://www.braingrid.ai/">BrainGrid</a> to your stack—it’s built for that audience and helps you ship faster without switching tools.</p>
+            <p>If you’re already on Cursor or Claude Code, we recommend adding <a href="https://braingrid.link/stoic">BrainGrid</a> to your stack—it’s built for that audience and helps you ship faster without switching tools.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>, <a href="/blog/windsurf-vs-cursor-vs-claude-code-2026.html">Windsurf vs Cursor vs Claude Code 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -143,6 +153,12 @@
         "description": "Compare the best AI coding assistants in 2026: Cursor, Claude Code, Windsurf, Tabnine, and more. Pricing, agentic features, and which fits your stack.",
         "url": "https://codepipelines.com/blog/best-ai-coding-assistant-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

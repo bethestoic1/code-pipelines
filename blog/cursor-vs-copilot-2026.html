@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -90,11 +93,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -142,24 +147,34 @@
             </table>
 
             <h2>Pricing in 2026</h2>
-            <p><strong>Cursor</strong> moved to a credit-based system. Cost depends on which models you use and how many requests you make. Free tier exists; Pro and higher tiers give more credits. Check current plans on Cursor’s site for exact numbers.</p>
-            <p><strong>GitHub Copilot</strong> keeps simple per-seat pricing: $10/mo for individuals (Pro), $19/user for Business, $39/user for Enterprise. No credit math—predictable for teams. Check <a href="https://github.com/features/copilot/plans">GitHub’s Copilot plans</a> for current pricing.</p>
+            <p><strong>Cursor</strong> moved to a credit-based system. Cost depends on which models you use and how many requests you make. Free tier exists; Pro and higher tiers give more credits. Heavier use—especially Agent mode and large context windows—burns through credits faster, so your real monthly cost can vary. Overages apply if you exceed your allotment. Check current plans on <a href="https://cursor.com/pricing">Cursor’s pricing page</a> for exact numbers and credit tiers.</p>
+            <p><strong>GitHub Copilot</strong> keeps simple per-seat pricing: $10/mo for individuals (Pro), $19/user for Business, $39/user for Enterprise. No credit math—predictable for teams. That makes Copilot easier to budget for; Cursor can be cheaper at low usage or more expensive if you lean hard on agentic features. Check <a href="https://github.com/features/copilot/plans">GitHub’s Copilot plans</a> for current pricing.</p>
+            <p>For a deeper breakdown of Cursor’s credits and how to get more value from your stack, see our <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a> guide.</p>
+
+            <h2>IDE and integration</h2>
+            <p>Cursor is a <strong>dedicated IDE</strong> (VS Code–based). You code inside Cursor; the AI is built in. You get one place for editing, chat, Agent mode, and terminal. Copilot is a <strong>plugin</strong> for VS Code, JetBrains, Neovim, and others. You stay in your current editor; Copilot adds completions and chat. So the choice is partly “new IDE vs keep my setup.” Cursor suits teams ready to standardize on one AI-native editor; Copilot suits those who want to keep existing toolchains and add AI on top.</p>
+            <p>Copilot has tight <strong>GitHub integration</strong>—PR summaries, issue context, and repo awareness. If your workflow is GitHub-centric, that’s a plus. Cursor is editor- and codebase-centric; it doesn’t replace GitHub but doesn’t require it either.</p>
 
             <h2>Agentic workflows</h2>
-            <p>Cursor is built for agentic use: Agent mode can edit multiple files, run commands, and work toward a goal. Copilot is strongest at inline completion and in-editor chat; agentic and multi-step flows are less central today. If “systemic orchestration” and multi-agent-style workflows matter most, Cursor has the edge. If you want great completions inside your current IDE with minimal workflow change, Copilot is a strong fit.</p>
+            <p>Cursor is built for <strong>agentic use</strong>: Agent mode can edit multiple files, run commands, and work toward a goal. You describe what you want; the agent proposes changes you review and accept. Copilot is strongest at inline completion and in-editor chat; agentic and multi-step flows are growing but less central today. If “systemic orchestration” and multi-agent-style workflows matter most, Cursor has the edge. If you want great completions inside your current IDE with minimal workflow change, Copilot is a strong fit.</p>
+            <p>Many developers pair Cursor or Claude Code with a planning/spec layer (e.g. <a href="https://braingrid.link/stoic">BrainGrid</a>) so the agent has clear tasks and acceptance criteria—fewer back-and-forth rounds and better results. That pattern works regardless of which IDE you use.</p>
 
             <h2>Our take</h2>
-            <p><strong>Pick Cursor</strong> if you want one AI-native IDE and are ready to adopt agentic, multi-file workflows. <strong>Pick Copilot</strong> if you want to stay in VS Code/JetBrains/Neovim with predictable pricing and deep GitHub integration.</p>
+            <p><strong>Pick Cursor</strong> if you want one AI-native IDE and are ready to adopt agentic, multi-file workflows. You’re trading “stay in my current editor” for a single, powerful environment. Best for teams that value Agent mode and are okay with credit-based pricing.</p>
+            <p><strong>Pick Copilot</strong> if you want to stay in VS Code, JetBrains, or Neovim with predictable per-seat pricing and deep GitHub integration. Best for GitHub-centric teams and anyone who prefers “AI as an add-on” rather than “AI as the IDE.”</p>
+            <p>For a broader comparison of Cursor, Copilot, Claude Code, Windsurf, and Tabnine, see our <a href="/blog/best-ai-coding-assistant-2026.html">best AI coding assistant 2026</a> roundup.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>, <a href="/blog/claude-code-vs-cursor-agent-2026.html">Claude Code vs Cursor Agent</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a> (best AI coding assistant 2026, Cursor pricing, Claude Code vs Cursor).</p>
-                <p><strong>Ship faster with your stack:</strong> If you use Cursor or Claude Code and want to tighten your workflow, we recommend <a href="https://www.braingrid.ai/">BrainGrid</a>—it plugs into your existing setup. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
-                <!-- Replace both hrefs above with your BrainGrid creator/affiliate link from https://www.braingrid.ai/creators when you have it -->
+                <p><strong>Ship faster with your stack:</strong> If you use Cursor or Claude Code and want to tighten your workflow, we recommend <a href="https://braingrid.link/stoic">BrainGrid</a>—it plugs into your existing setup. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -170,6 +185,12 @@
         "description": "Compare Cursor and GitHub Copilot in 2026: pricing, agentic features, and which AI coding assistant fits your stack.",
         "url": "https://codepipelines.com/blog/cursor-vs-copilot-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

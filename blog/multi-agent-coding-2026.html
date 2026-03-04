@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -84,11 +87,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -105,18 +110,21 @@
             <h2>What multi-agent coding means in practice</h2>
             <p><strong>Multi-agent coding</strong> means more than one AI “agent” can work on a codebase—e.g. one for backend, one for frontend, or one for tests. In practice today, that often means: (1) one primary agent (Cursor Agent or Claude Code) doing multi-step tasks, or (2) multiple specialized tools (e.g. Cursor + a separate test generator) used in sequence. True multi-agent orchestration (several models coordinating) is still emerging; most teams get 80% of the benefit from one strong agentic tool used well.</p>
             <h2>Tool stack: IDEs, CLIs, orchestration</h2>
-            <p>Start with one agentic IDE or CLI: <strong>Cursor</strong> or <strong>Claude Code</strong>. Add <strong>MCP</strong> so the agent can call DBs and APIs. Use <strong>BrainGrid</strong> or similar to tighten the loop for Cursor/Claude Code users. Orchestration (e.g. scripting multiple agents or steps) can be done with your own scripts or CI; dedicated multi-agent platforms are still maturing.</p>
+            <p>Start with one agentic IDE or CLI: <strong>Cursor</strong> or <strong>Claude Code</strong>. Add <strong>MCP</strong> so the agent can call DBs and APIs. Use <a href="https://braingrid.link/stoic"><strong>BrainGrid</strong></a> or similar to tighten the loop for Cursor/Claude Code users. Orchestration (e.g. scripting multiple agents or steps) can be done with your own scripts or CI; dedicated multi-agent platforms are still maturing.</p>
             <h2>Getting from zero to first run</h2>
             <p>Install Cursor or Claude Code CLI, open a repo, and run one task: “add error handling to this endpoint” or “write a test for this function.” Review the proposed changes, apply or edit, then run tests. Once that feels good, add project rules and MCP. You’re “multi-agent ready” when you can reliably hand off a well-scoped task and review the result.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows Cursor Claude</a>, <a href="/blog/best-agentic-coding-tools-2026.html">Best agentic coding tools 2026</a>, <a href="/blog/devex-stack-2026.html">DevEx stack 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +135,12 @@
         "description": "Multi-agent coding in 2026: how to set it up, which tools support it, and a practical stack for teams.",
         "url": "https://codepipelines.com/blog/multi-agent-coding-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

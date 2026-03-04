@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -84,11 +87,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -105,18 +110,21 @@
             <h2>The old vs new onboarding curve</h2>
             <p>Traditionally, new devs spent days or weeks reading docs, cloning repos, and asking "where do I start?" In 2026, AI that has <strong>repo-level context</strong> can answer "how do I add a new API?" by reading the codebase and suggesting the right files and patterns. That compresses onboarding to hours: first commit becomes "follow the AI's guided edit" plus a quick review.</p>
             <h2>AI context and repo-level understanding</h2>
-            <p>Tools like Cursor and Claude Code (and add-ons like BrainGrid) can ingest the whole repo or key paths. The model then understands structure, conventions, and where to change things. Give new devs one clear task ("add a test for X") and let the AI propose the edit with context; they review and learn. Repeat with slightly larger tasks until they're self-sufficient.</p>
+            <p>Tools like Cursor and Claude Code (and add-ons like <a href="https://braingrid.link/stoic">BrainGrid</a>) can ingest the whole repo or key paths. The model then understands structure, conventions, and where to change things. Give new devs one clear task ("add a test for X") and let the AI propose the edit with context; they review and learn. Repeat with slightly larger tasks until they're self-sufficient.</p>
             <h2>Tools and practices that work</h2>
-            <p>Use an agentic IDE or CLI (Cursor, Claude Code) with project rules and good docs in the repo. On day one, point new devs to one "starter" issue and have them use the AI to implement it with review. Document your stack and conventions so the AI can reference them. This works best when the team already uses Cursor or Claude Code; adding BrainGrid can tighten the loop for that stack.</p>
+            <p>Use an agentic IDE or CLI (Cursor, Claude Code) with project rules and good docs in the repo. On day one, point new devs to one "starter" issue and have them use the AI to implement it with review. Document your stack and conventions so the AI can reference them. This works best when the team already uses Cursor or Claude Code; adding <a href="https://braingrid.link/stoic">BrainGrid</a> can tighten the loop for that stack.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/ship-faster-cursor-claude-2026.html">Ship faster with Cursor and Claude Code</a>, <a href="/blog/ai-dev-stack-setup-2026.html">AI dev stack setup 2026</a>, <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +135,12 @@
         "description": "Onboard developers in hours using AI context windows and repo-level understanding. Cut time-to-first-commit in 2026.",
         "url": "https://codepipelines.com/blog/developer-onboarding-ai-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

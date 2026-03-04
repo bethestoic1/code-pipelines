@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -76,6 +79,7 @@
         }
         .cta-box a { color: var(--accent); font-weight: bold; }
         .cta-box a:hover { color: var(--accent-muted); }
+        code { background: var(--surface); padding: 2px 6px; border-radius: var(--radius); }
         footer {
             margin-top: calc(var(--space) * 8);
             padding-top: calc(var(--space) * 3);
@@ -84,11 +88,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -100,23 +106,37 @@
             <h1>DevEx stack 2026: agentic workflows and modern tooling</h1>
             <p class="meta">2026-03-02 · Code Pipelines</p>
 
-            <p>Developer experience in 2026 means agentic workflows, clear tool choices, and pipelines that don’t get in the way. We outline a practical stack.</p>
+            <p>Developer experience in 2026 means agentic workflows, clear tool choices, and pipelines that don’t get in the way. We outline a practical stack and how each layer fits together. For head-to-head tool picks, see our <a href="/blog/best-ai-coding-assistant-2026.html">best AI coding assistant 2026</a> and <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>.</p>
 
             <h2>What belongs in a 2026 DevEx stack</h2>
-            <p>A 2026 DevEx stack should include: (1) an <strong>AI-native IDE or CLI</strong> with agentic support (multi-file, terminal, optional MCP). (2) <strong>Context and rules</strong>—project rules, docs, and codebase access so the AI behaves consistently. (3) <strong>Diff-based review</strong> so changes are proposed, not applied blindly. (4) <strong>Security in the pipeline</strong>—secret scanning and dependency checks in CI. (5) <strong>Onboarding</strong>—docs and tooling so new devs reach first commit in hours, not weeks.</p>
-            <h2>Agentic tooling: Cursor, Claude Code, and more</h2>
-            <p>Core choices: <strong>Cursor</strong> (IDE, Agent mode, credits) for day-to-day coding and feature work; <strong>Claude Code CLI</strong> for terminal-first tasks and automation; <strong>GitHub Copilot</strong> or <strong>Windsurf</strong> if you prefer plugins or need different pricing. Add <strong>MCP</strong> servers for DB, APIs, and docs. Tools like <strong>BrainGrid</strong> are built for Cursor and Claude Code users and help you ship faster without switching stacks.</p>
-            <h2>Security and CI/CD in the loop</h2>
-            <p>Agentic dev moves fast—so pipelines must catch secrets and vulnerable dependencies. Run secret scanning (e.g. pre-commit and in CI) and dependency/SBOM checks on every branch. Use branch protection and required reviews so AI-proposed changes are reviewed before merge. That keeps DevEx high and risk under control.</p>
+            <p>A 2026 DevEx stack should include five things. (1) An <strong>AI-native IDE or CLI</strong> with agentic support—multi-file edits, terminal access, optional MCP. (2) <strong>Context and rules</strong>—project rules, docs, and codebase access so the AI behaves consistently. (3) <strong>Diff-based review</strong> so changes are proposed, not applied blindly. (4) <strong>Security in the pipeline</strong>—secret scanning and dependency checks in CI. (5) <strong>Onboarding</strong>—docs and tooling so new devs reach first commit in hours, not weeks. Skip any of these and you either limit what the AI can do, or you ship faster at the cost of quality and safety.</p>
 
+            <h2>Layer 1: Your primary AI coding tool</h2>
+            <p>This is where you spend most of your time. <strong>Cursor</strong> (IDE, Agent mode, <a href="/blog/cursor-pricing-2026.html">credit-based pricing</a>) is the default choice for teams that want full agentic workflows in one place. <strong>Claude Code CLI</strong> pairs well for terminal-first and automation work. If you need a plugin model or different pricing, <strong>GitHub Copilot</strong> or <strong>Windsurf</strong> are options—we compare <a href="/blog/windsurf-vs-cursor-vs-claude-code-2026.html">Windsurf vs Cursor vs Claude Code</a> and <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot</a> in detail. Pick one primary and optionally a second for a different workflow (e.g. Cursor + Claude Code).</p>
+
+            <h2>Layer 2: Agentic workflows and context</h2>
+            <p>Once the tool is chosen, make agentic workflows first-class. That means: clear prompts, scoped tasks, and a strict review step. We walk through this in <a href="/blog/agentic-workflows-cursor-claude-2026.html">agentic workflows with Cursor and Claude Code</a>. Add <strong>Cursor rules</strong> (or equivalent) and project docs so the agent follows your conventions; see <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices</a>. <strong>MCP</strong> servers extend the agent with DB, APIs, and docs—see <a href="/blog/best-mcp-servers-cursor-claude-2026.html">best MCP servers for Cursor and Claude</a>. Tools like <strong>BrainGrid</strong> are built for Cursor and Claude Code users and help you ship faster without switching stacks.</p>
+
+            <h2>Layer 3: Security and CI/CD</h2>
+            <p>Agentic dev moves fast—so pipelines must catch secrets and vulnerable dependencies. Run <strong>secret scanning</strong> (e.g. pre-commit and in CI); we cover <a href="/blog/secret-scanning-tools-devops-2026.html">secret scanning tools for DevOps</a> and <a href="/blog/security-first-cicd-2026.html">security-first CI/CD</a>. Add dependency/SBOM checks on every branch. Use branch protection and required reviews so AI-proposed changes are reviewed before merge. That keeps DevEx high and risk under control; for the full picture see <a href="/blog/devsecops-ai-development-2026.html">DevSecOps for AI development</a>.</p>
+
+            <h2>Layer 4: Onboarding and consistency</h2>
+            <p>New devs should reach first commit quickly. That means: one-click or scripted env setup, clear docs on how to run the app and tests, and a short guide to your agentic workflow (which tool, how to prompt, how to review). <a href="/blog/developer-onboarding-ai-2026.html">Developer onboarding with AI</a> goes deeper. Consistency across the team comes from shared rules, shared MCP config where relevant, and the same diff-based review habit.</p>
+
+            <h2>Our take</h2>
+            <p>In 2026, a strong DevEx stack is agentic-first but guardrailed: Cursor (or Cursor + Claude Code) at the center, with rules and MCP for context, diff-based review for every change, and security + onboarding so the whole team can move fast safely. If you’re scaling to <a href="/blog/multi-agent-coding-2026.html">multi-agent coding</a>, the same layers apply—clear roles, shared context, and review before merge. BrainGrid fits in as a recommended add-on for Cursor and Claude Code users who want to ship faster without changing their stack.</p>
+
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/best-agentic-coding-tools-2026.html">Best agentic coding tools 2026</a>, <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows Cursor Claude</a>, <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +147,12 @@
         "description": "Build your 2026 DevEx stack: agentic workflows, Cursor, Claude Code, and tooling that keeps architectural integrity.",
         "url": "https://codepipelines.com/blog/devex-stack-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

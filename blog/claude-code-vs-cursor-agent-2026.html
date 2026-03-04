@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -84,11 +87,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -107,16 +112,19 @@
             <h2>Cursor Agent: strengths and workflow</h2>
             <p><strong>Cursor Agent</strong> runs inside the Cursor IDE. It has full access to your open project, can edit multiple files, run terminal commands, and use the browser. Strengths: everything in one place—code, chat, diffs, and runs. You see changes in the editor and can approve or edit before applying. Pricing is credit-based (Cursor’s model). Best when you’re already in Cursor for day-to-day coding and want agentic feature work or refactors without leaving the IDE.</p>
             <h2>When to use which (or both)</h2>
-            <p>Use <strong>Claude Code CLI</strong> for quick terminal tasks, scripting, and automation. Use <strong>Cursor Agent</strong> for feature work and refactors where you want in-editor review. Many teams use both: Cursor for main development, Claude Code for ad-hoc or CI-like tasks. Tools like BrainGrid plug into both so you can keep a consistent workflow and ship faster.</p>
+            <p>Use <strong>Claude Code CLI</strong> for quick terminal tasks, scripting, and automation. Use <strong>Cursor Agent</strong> for feature work and refactors where you want in-editor review. Many teams use both: Cursor for main development, Claude Code for ad-hoc or CI-like tasks. Tools like <a href="https://braingrid.link/stoic">BrainGrid</a> plug into both so you can keep a consistent workflow and ship faster.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-agent-vs-claude-code-cli-2026.html">Cursor Agent vs Claude Code CLI</a>, <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows Cursor Claude</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +135,12 @@
         "description": "Claude Code CLI vs Cursor Agent in 2026: when to use which, pricing, and how they fit into an agentic dev workflow.",
         "url": "https://codepipelines.com/blog/claude-code-vs-cursor-agent-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",
