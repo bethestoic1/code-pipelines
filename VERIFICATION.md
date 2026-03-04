@@ -35,7 +35,7 @@ No claims were found that contradict official or well-sourced descriptions of th
 ### Affiliate alignment
 
 - **BrainGrid** is recommended only where it fits: “for Cursor and Claude Code users” and “plugs into your existing setup,” matching the creator page. We do not attribute features to BrainGrid beyond that.
-- **Every article** has a CTA box with “Compare more tools” (internal link) and “We recommend BrainGrid … Try BrainGrid →” (affiliate link placeholder).
+- **Every article** has a CTA box with “Compare more tools” (internal link) and “We recommend BrainGrid … Try BrainGrid →” using the creator link https://braingrid.link/stoic.
 - **Tone:** Recommendations are “we recommend” or “worth trying,” not overclaiming. Other tools (Copilot, Tabnine, Windsurf) are described fairly so the site stays credible and SEO-friendly.
 - **No paywalled or fake studies cited.** No “studies show” or fabricated stats. Where we mention trends (e.g. “93% of developers use AI”), that’s from the existing homepage and can be updated if you have a source.
 
@@ -44,8 +44,7 @@ No claims were found that contradict official or well-sourced descriptions of th
 ## Caveats for you
 
 1. **Pricing and plans** change. We added “confirm on cursor.com” / “check vendor sites” where we give numbers. Plan to refresh pricing paragraphs every 6–12 months or when vendors change tiers.
-2. **Replace placeholder links:** All BrainGrid links are currently `https://www.braingrid.ai/`. Replace with your creator/affiliate link from [BrainGrid Creators](https://www.braingrid.ai/creators) so you get credit.
-3. **Optional:** Remove or shorten the HTML comment in `blog/cursor-vs-copilot-2026.html` that says “Replace both hrefs above with your BrainGrid creator/affiliate link” once you’ve swapped the links (comment is not visible to users).
+2. **Creator link in use:** All BrainGrid links use the creator URL `https://braingrid.link/stoic`. Inline body mentions also link to this URL to maximize referral potential.
 
 ---
 
@@ -54,4 +53,4 @@ No claims were found that contradict official or well-sourced descriptions of th
 - **Factual:** Pricing and product claims were checked; one wording fix was made (Cursor “unlimited” → credit-based / request-based). No nonsense or invented facts found.
 - **Affiliate goal:** Content is aligned with recurring affiliate income: BrainGrid is recommended in every post with a clear CTA, in a way that matches their stated audience (Cursor/Claude Code users). Comparisons stay fair so the site stays trustworthy and ranks.
 
-Safe to ship once you’ve replaced the BrainGrid URLs with your creator link.
+Creator link is live sitewide; safe to ship and scale.
