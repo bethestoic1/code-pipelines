@@ -78,8 +78,10 @@
             color: var(--accent-muted);
         }
         .prompt-cursor {
-            animation: blink 1s infinite;
             border-right: 10px solid var(--accent);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .prompt-cursor { animation: blink 1s infinite; }
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -202,14 +204,14 @@
                 <li><strong>Onboarding Revolution:</strong> Reducing time-to-first-commit from weeks to hours using contextual AI context windows.</li>
                 <li><strong>Security-First Pipelines:</strong> Automated secret scanning and dependency validation integrated into every branch.</li>
             </ul>
+            <p style="margin-top: calc(var(--space) * 4);"><strong>Featured:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a> · <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a> · <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a></p>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 CodePipelines.com</p>
-        <p><a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
-        <!-- Replace the BrainGrid href below with your creator link from https://www.braingrid.ai/creators -->
-        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://www.braingrid.ai/">BrainGrid</a>.</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">

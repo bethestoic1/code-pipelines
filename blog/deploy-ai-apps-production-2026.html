@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -84,11 +87,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -109,14 +114,17 @@
             <h2>CI and repeatable deploys</h2>
             <p>Use the host's native CI (e.g. Vercel/Railway build on push) or add GitHub Actions/GitLab CI to run tests and then deploy. Keep a single source of truth (main or release branch) and deploy on merge. Add secret scanning and dependency checks to CI so production stays clean. Once that's in place, every merge is a repeatable, auditable deploy.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/best-hosting-for-developers-2026.html">Best hosting for developers 2026</a>, <a href="/blog/ai-dev-stack-setup-2026.html">AI dev stack setup 2026</a>, <a href="/blog/security-first-cicd-2026.html">Security-first CI/CD 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +135,12 @@
         "description": "Deploy AI apps from Cursor and Replit to production in 2026: paths, hosting, and a simple pipeline.",
         "url": "https://codepipelines.com/blog/deploy-ai-apps-production-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",

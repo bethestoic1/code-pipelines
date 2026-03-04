@@ -53,7 +53,10 @@
             padding: 20px;
             position: relative;
         }
-        header { border-bottom: 1px solid var(--accent); padding: 24px 0; }
+        header { border-bottom: 1px solid var(--accent); padding: 40px 0; text-align: left; }
+        .site-name { margin: 0 0 calc(var(--space) * 2) 0; }
+        .site-name a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .site-name a:hover { color: var(--accent-muted); }
         nav { margin-top: calc(var(--space) * 2); }
         nav a {
             color: var(--accent);
@@ -84,11 +87,13 @@
             font-size: 0.9em;
         }
         footer a { color: var(--accent); }
+        footer a:hover { color: var(--accent-muted); }
     </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
+        <p class="site-name"><a href="/">Code Pipelines</a></p>
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
@@ -107,16 +112,19 @@
             <h2>How to implement them in your stack</h2>
             <p>Use Cursor Agent or Claude Code in a way that surfaces diffs before apply: Cursor shows edits in the editor; you can accept per file or per hunk. In CI, run AI-generated code through the same review as human code—PRs, required review, and tests. Establish a rule: “no direct apply of large AI changes without diff review.” That’s your baseline diff-based workflow.</p>
             <h2>Tools that support review and apply</h2>
-            <p><strong>Cursor</strong> and <strong>Claude Code CLI</strong> both propose changes you can review before accepting. Cursor integrates with git and shows diffs in the IDE; Claude Code can write to files with your approval. Pair them with normal git workflow: commit AI-proposed changes as logical patches so history stays readable. Tools like BrainGrid that plug into Cursor and Claude Code fit the same pattern—propose, review, then apply.</p>
+            <p><strong>Cursor</strong> and <strong>Claude Code CLI</strong> both propose changes you can review before accepting. Cursor integrates with git and shows diffs in the IDE; Claude Code can write to files with your approval. Pair them with normal git workflow: commit AI-proposed changes as logical patches so history stays readable. Tools like <a href="https://braingrid.link/stoic">BrainGrid</a> that plug into Cursor and Claude Code fit the same pattern—propose, review, then apply.</p>
 
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows Cursor Claude</a>, <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://www.braingrid.ai/">BrainGrid</a> for Cursor and Claude Code users. <a href="https://www.braingrid.ai/">Try BrainGrid →</a></p>
+                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="/">Code Pipelines</a> · <a href="/blog/">Blog</a></p>
+        <p>&copy; 2026 CodePipelines.com</p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a></p>
+        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -127,6 +135,12 @@
         "description": "Diff-based workflows in 2026: move from “blind” AI rewrites to controlled, reviewable patches and merges.",
         "url": "https://codepipelines.com/blog/diff-based-workflows-ai-2026.html",
         "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Code Pipelines",
+            "url": "https://codepipelines.com/"
+        },
         "publisher": {
             "@type": "Organization",
             "name": "Code Pipelines",
