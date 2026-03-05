@@ -16,6 +16,10 @@ Reads the `ARTICLES` list in the script and writes HTML files to `/blog/`. Only 
 
 **No other build, lint, or test commands exist.** The site deploys automatically via GitHub Pages on push to `main`.
 
+### Git workflow
+
+**Always pull from `main` first** before committing (or before starting new work). This avoids branch divergence when `main` has moved forward (e.g. merged PRs). Example: `git fetch origin && git pull origin main --no-rebase` (or merge/rebase as preferred), then make and commit changes.
+
 ## Architecture
 
 ### File structure
