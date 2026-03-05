@@ -24,6 +24,8 @@
             --muted: #888;
             --space: 8px;
             --radius: 4px;
+            --link: #00d4ff;
+            --link-visited: #c770ff;
         }
         *, *::before, *::after { box-sizing: border-box; }
         .skip-link {
@@ -71,6 +73,9 @@
         article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
         article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
         .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
+        article a:link { color: var(--link); text-decoration: underline; }
+        article a:visited { color: var(--link-visited); }
+        article a:hover { color: var(--accent); }
         .cta-box {
             border: 1px solid var(--accent);
             padding: calc(var(--space) * 4);

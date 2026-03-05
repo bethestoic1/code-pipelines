@@ -27,6 +27,8 @@
             --muted: #888;
             --space: 8px;
             --radius: 4px;
+            --link: #00d4ff;
+            --link-visited: #c770ff;
         }
         *, *::before, *::after { box-sizing: border-box; }
         .skip-link {
@@ -162,6 +164,16 @@
             border-top: 1px solid var(--muted);
             color: var(--muted);
             font-size: 0.9em;
+        }
+        main a:link {
+            color: var(--link);
+            text-decoration: underline;
+        }
+        main a:visited {
+            color: var(--link-visited);
+        }
+        main a:hover {
+            color: var(--accent);
         }
         footer a {
             color: var(--accent);
