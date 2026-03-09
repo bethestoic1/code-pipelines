@@ -13,6 +13,8 @@ REPLIT_REFERRAL_URL = "https://replit.com/refer/bethestoic1"
 UDEMY_REFERRAL_URL = "https://refer.udemy.com/bethestoic1!bf999b8a03!a?locale=en"
 # Vultr referral: $10 per paid signup (standard) or Give $300 Get $100 (promo, limited time). Use in deploy/cloud content (#29, #31, deploy AI apps). See BRAINGRID_AFFILIATE.md.
 VULTR_REFERRAL_URL = "https://www.vultr.com/?ref=9876695-9J"  # Promo link; use ref=9876694 for standard when promo ends
+# Railway referral: $20 per referral. Use in deploy/hosting content. See BRAINGRID_AFFILIATE.md.
+RAILWAY_REFERRAL_URL = "https://railway.com?referralCode=ZoVi-b"
 
 STYLES = """        :root {
             --bg: #0d0d0d;
@@ -94,6 +96,8 @@ NAV = """        <nav aria-label="Main">
             <a href="/blog/">Blog</a>
             <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
         </nav>"""
+
+DISCLOSURE = '    <p style="font-size:0.8em;color:var(--muted);margin:0;padding:6px 0 0 0;">Advertising disclosure: We earn commissions when you shop through the links below.</p>'
 
 RELATED = '''            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>.</p>
 '''
@@ -261,6 +265,7 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
 {NAV}
     </header>
     <main id="main">
+{DISCLOSURE}
         <article>
             <h1>{title}</h1>
             <p class="meta">{DATE} · Code Pipelines</p>

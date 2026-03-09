@@ -106,6 +106,7 @@
         </nav>
     </header>
     <main id="main">
+    <p style="font-size:0.8em;color:var(--muted);margin:0;padding:6px 0 0 0;">Advertising disclosure: We earn commissions when you shop through the links below.</p>
         <article>
             <h1>Deploying AI apps: from Cursor/Replit to production</h1>
             <p class="meta">2026-03-02 · Code Pipelines</p>
@@ -115,9 +116,13 @@
             <h2>From local/Replit to first deploy</h2>
             <p>If you built in <strong>Cursor</strong> or locally: push to GitHub/GitLab, then connect the repo to a host (Vercel, Railway, Render, etc.) for automatic deploys. If you built in <strong><a href="https://replit.com/refer/bethestoic1" rel="noopener noreferrer">Replit</a></strong>: use <a href="https://replit.com/refer/bethestoic1" rel="noopener noreferrer">Replit's deploy</a> or export the app and deploy to any Node/Python host. First deploy is usually "connect repo → add env vars → deploy." No need for complex orchestration at first.</p>
             <h2>Hosting and runtimes that fit</h2>
-            <p>Match the stack: <strong>Next.js/React static</strong> → Vercel, Netlify. <strong>Node/Python API or full-stack</strong> → Railway, Render, Fly.io, or a VPS (e.g. <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Vultr</a> or DigitalOcean for simple cloud VPS). <strong>Replit-style runtimes</strong> → <a href="https://replit.com/refer/bethestoic1" rel="noopener noreferrer">Replit Deploy</a> or export to a standard runtime elsewhere. Use managed DB (e.g. Supabase, PlanetScale, or provider DB) so you're not managing servers. For AI apps that call APIs, ensure env vars for keys are set in the host. Need a simple VPS? <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Try Vultr</a> (referral link—new users get credits).</p>
+            <p>Match the stack: <strong>Next.js/React static</strong> → Vercel, Netlify. <strong>Node/Python API or full-stack</strong> → <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Railway</a>, Render, Fly.io, or a VPS (e.g. <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Vultr</a> or DigitalOcean for simple cloud VPS). <strong>Replit-style runtimes</strong> → <a href="https://replit.com/refer/bethestoic1" rel="noopener noreferrer">Replit Deploy</a> or export to a standard runtime elsewhere. Use managed DB (e.g. Supabase, PlanetScale, or provider DB) so you're not managing servers. For AI apps that call APIs, ensure env vars for keys are set in the host. Need a simple VPS? <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Try Vultr</a> (referral link—new users get credits).</p>
             <h2>CI and repeatable deploys</h2>
             <p>Use the host's native CI (e.g. Vercel/Railway build on push) or add GitHub Actions/GitLab CI to run tests and then deploy. Keep a single source of truth (main or release branch) and deploy on merge. Add secret scanning and dependency checks to CI so production stays clean. Once that's in place, every merge is a repeatable, auditable deploy.</p>
+
+            <div class="cta-box" aria-label="Try Railway">
+                <p><strong>Fastest path from AI-built app to production:</strong> <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Railway</a> connects your GitHub repo and deploys in minutes — databases, env vars, and auto-scaling included. <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Deploy on Railway →</a></p>
+            </div>
 
             <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/best-hosting-for-developers-2026.html">Best hosting for developers 2026</a>, <a href="/blog/ai-dev-stack-setup-2026.html">AI dev stack setup 2026</a>, <a href="/blog/security-first-cicd-2026.html">Security-first CI/CD 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
