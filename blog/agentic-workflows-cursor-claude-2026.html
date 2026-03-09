@@ -113,28 +113,83 @@
             <h1>How to run agentic workflows with Cursor and Claude Code</h1>
             <p class="meta">2026-03-02 · Code Pipelines</p>
 
-            <p>Step-by-step: how we run agentic workflows using Cursor and Claude Code, and what we add to ship faster. If you’re comparing tools, see our <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a> and <a href="/blog/best-ai-coding-assistant-2026.html">best AI coding assistant 2026</a> guides for the big picture.</p>
+            <p>Agentic workflows are how serious developers use AI in 2026 — not tab completions, but multi-step tasks where the AI plans, edits files, runs commands, and iterates toward a goal. This guide shows exactly how to set up and run agentic workflows using Cursor and Claude Code CLI, what to configure, and how to combine both tools effectively.</p>
 
             <h2>What an agentic workflow actually is</h2>
-            <p>An <strong>agentic workflow</strong> means the AI doesn’t just suggest a single line or block—it takes a goal (e.g. “add a rate limiter to this API”), plans steps, edits multiple files, runs commands, and can even browse or call tools. You stay in the loop by reviewing diffs and approving or editing changes. The key is: the model has <em>agency</em> (it can act across the codebase and terminal) while you keep control via review.</p>
-            <p>Define yours by outcome: “I want the AI to implement feature X,” “refactor module Y,” or “fix tests for Z.” Then choose which tool runs the agent (Cursor Agent, Claude Code CLI, or both) and what context you give (repo root, specific dirs, docs). Start with one clear task per run so you can tune context and prompts. For more on how different tools stack up, see <a href="/blog/best-agentic-coding-tools-2026.html">best agentic coding tools 2026</a>.</p>
+            <p>An <strong>agentic workflow</strong> means the AI doesn’t just suggest a single line or block — it takes a goal (“add a rate limiter to this API”), plans the steps needed, edits multiple files, runs terminal commands, and can call external tools. You stay in the loop by reviewing diffs and approving or editing changes before they apply. The model has <em>agency</em> while you keep control via review.</p>
+            <p>This is a meaningful shift from 2024’s autocomplete-first AI coding. In 2026, the tools that matter handle multi-step tasks without you micromanaging every line. The key skills are: writing clear task specs, configuring context so the agent knows your codebase, and reviewing diffs effectively before accepting changes.</p>
+            <p>Define your workflow by outcome first: “I want the AI to implement feature X,” “refactor module Y to use async/await,” or “add tests for Z with 80% coverage.” One clear outcome per agent run. For how different tools compare on agentic capabilities, see <a href=”/blog/best-agentic-coding-tools-2026.html”>best agentic coding tools 2026</a>.</p>
 
-            <h2>Cursor + Claude Code in practice</h2>
-            <p><strong>Cursor</strong> runs agentic workflows inside the IDE: Agent mode can read the repo, edit files, run terminal commands, and use the browser. Best when you’re already in Cursor and want everything in one place. Use it for feature work, refactors, and debugging that benefit from full codebase context. Cursor uses a <a href="/blog/cursor-pricing-2026.html">credit-based pricing</a> model—Agent and heavy model use consume credits, so it pays to scope tasks clearly and use rules so the agent doesn’t wander.</p>
-            <p><strong>Claude Code CLI</strong> is terminal-first: you run <code>claude</code> in a project dir and chat or give instructions; it can edit files and run commands. Best for quick scripts, one-off migrations, or when you prefer the terminal. Many teams use Cursor for day-to-day coding and Claude Code for ad-hoc tasks or automation. We break down when to use which in <a href="/blog/claude-code-vs-cursor-agent-2026.html">Claude Code vs Cursor Agent</a>.</p>
-            <p>In practice: start a feature in Cursor Agent with a clear prompt and let it propose changes; for repetitive or script-heavy work, drop into Claude Code CLI. Same repo, complementary tools.</p>
+            <h2>Cursor Agent mode: setup and patterns</h2>
+            <p>Cursor Agent mode is the primary tool for IDE-based agentic work. Here’s how to set it up properly:</p>
+            <p><strong>1. Configure .cursorrules</strong> — Create a <code>.cursorrules</code> file at your repo root. This tells the agent your stack, conventions, and constraints before it starts. Example:</p>
+            <ul>
+                <li>Language and framework (e.g. “TypeScript, Next.js 14, App Router”)</li>
+                <li>Code style (e.g. “use named exports, no default exports”)</li>
+                <li>Testing conventions (e.g. “use Vitest, co-locate test files”)</li>
+                <li>What to avoid (e.g. “do not install new dependencies without asking”)</li>
+            </ul>
+            <p>Good rules reduce clarification rounds and prevent the agent from making decisions you’d reverse. This directly lowers credit consumption — fewer rounds means fewer fast requests used.</p>
+            <p><strong>2. Use @-mentions to scope context</strong> — In Agent mode, use <code>@file</code> or <code>@folder</code> to attach only what the agent needs. Including the whole repo when you only need two files wastes context tokens and credits. For a task touching the auth module, attach just <code>@src/auth</code>, not the entire codebase.</p>
+            <p><strong>3. Write the task as a spec, not a question</strong> — Compare:</p>
+            <ul>
+                <li>Weak: “Can you improve the login function?”</li>
+                <li>Strong: “Add rate limiting to the <code>POST /auth/login</code> handler. Limit to 5 attempts per IP per 15 minutes. Use Redis for the counter. Return 429 with a Retry-After header when exceeded. Add a test for the rate limit behavior.”</li>
+            </ul>
+            <p>The second prompt gets it right in 1–2 rounds. The first takes 5–10 turns of clarification. Tools like <a href=”https://braingrid.link/stoic” rel=”noopener noreferrer”>BrainGrid</a> are built to help Cursor and Claude Code users write these specs efficiently — structured task descriptions that feed the agent exactly what it needs.</p>
+            <p><strong>4. Review every diff before accepting</strong> — Cursor shows you all proposed changes before applying. Read them. The agent is right most of the time, but reviewing keeps you in control and helps you catch edge cases. Accept selectively: you can approve parts and reject others.</p>
+            <p><strong>5. Have the agent run tests</strong> — End each agentic task by asking the agent to run your test suite: “Run <code>npm test</code> and fix any failures.” Closing the loop in the same session means the task is verifiably done, not just “looks right.”</p>
 
-            <h2>Step-by-step: running your first agentic task</h2>
-            <p>(1) <strong>Pick one outcome</strong>—e.g. “Add input validation to the signup handler.” (2) <strong>Open the right context</strong>—in Cursor, that’s the folder or files the agent needs; in Claude Code, you’re in the project directory. (3) <strong>Give a concrete prompt</strong>—include the file or module name and what “done” looks like. (4) <strong>Review every change</strong>—use the diff view; accept, edit, or reject. (5) <strong>Run tests</strong>—have the agent run the test command or do it yourself. This loop (prompt → review → verify) keeps quality high and avoids surprise rewrites.</p>
+            <h2>Claude Code CLI: terminal-first agentic patterns</h2>
+            <p>Claude Code CLI runs from your terminal — <code>claude</code> in your project directory. It reads your codebase, edits files, and runs commands without a GUI. It’s the right tool when:</p>
+            <ul>
+                <li>You’re already in the terminal and don’t want to open an IDE</li>
+                <li>The task is scripted or automated (CI pipelines, batch migrations)</li>
+                <li>You want to chain tasks: “do X, then run tests, then do Y”</li>
+                <li>You prefer terminal-native workflows over IDE workflows</li>
+            </ul>
+            <p><strong>Useful Claude Code CLI patterns:</strong></p>
+            <ul>
+                <li><strong>Batch migrations</strong>: “Update all API calls in <code>src/api/</code> to use the new v2 endpoint format.” Claude Code reads every file, makes consistent changes across the whole directory.</li>
+                <li><strong>Automated refactors</strong>: “Convert all class components in <code>src/components/</code> to functional components with hooks.” Runs through the whole folder systematically.</li>
+                <li><strong>One-off scripts</strong>: “Write a script that reads the CSV in <code>data/users.csv</code> and imports records into the database using our Prisma schema. Run it and show me the output.”</li>
+                <li><strong>CI task automation</strong>: Use Claude Code in a GitHub Actions step to automate code review comments, generate changelogs, or apply consistent formatting fixes.</li>
+            </ul>
+            <p>Claude Code respects a <code>CLAUDE.md</code> file at your repo root — similar to <code>.cursorrules</code>, it gives the agent project context and constraints. For a direct feature comparison with Cursor Agent, see <a href=”/blog/claude-code-vs-cursor-agent-2026.html”>Claude Code vs Cursor Agent</a>.</p>
 
-            <h2>Extending with MCP and other tools</h2>
-            <p><strong>MCP</strong> (Model Context Protocol) lets Cursor and Claude Code call external servers for tools, APIs, and data—e.g. database schemas, ticketing systems, or internal APIs. Add MCP servers so the agent can look up info or trigger actions without you switching context. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> and other tools in the ecosystem support MCP; see <a href="/blog/best-mcp-servers-cursor-claude-2026.html">best MCP servers for Cursor and Claude</a> for ideas. That keeps your agentic workflow fed with the right context and helps you ship faster without leaving the IDE or CLI.</p>
-            <p>Other useful extensions: good <strong>Cursor rules</strong> and project docs so the agent behaves consistently; a <strong>diff-based</strong> review step so you never apply blind rewrites. For more on the latter, see <a href="/blog/diff-based-workflows-ai-2026.html">diff-based workflows with AI</a>. Once this is in place, you have a full agentic setup that stays under your control.</p>
+            <h2>Combining Cursor and Claude Code: the handoff pattern</h2>
+            <p>Most advanced teams use both tools — each for what it’s best at. Here’s the practical split:</p>
+            <ul>
+                <li><strong>Cursor Agent</strong>: interactive feature development, multi-file refactors where you want a visual diff, debugging with codebase context, any work where you’re actively iterating</li>
+                <li><strong>Claude Code CLI</strong>: batch/scripted work, automation, CI tasks, quick one-off changes without opening the IDE, tasks you want to run headlessly</li>
+            </ul>
+            <p><strong>Example handoff flow for a new feature:</strong></p>
+            <ul>
+                <li>Write the spec in <a href=”https://braingrid.link/stoic” rel=”noopener noreferrer”>BrainGrid</a> (structured task description, acceptance criteria)</li>
+                <li>Run Cursor Agent with that spec to implement the feature interactively — review diffs, approve changes</li>
+                <li>Use Claude Code CLI to generate tests for the new feature: <code>claude “Add tests for the feature I just implemented in src/features/rateLimit.ts”</code></li>
+                <li>Claude Code runs the tests and fixes failures in one session</li>
+                <li>Commit and push — CI runs clean</li>
+            </ul>
+            <p>Same repo, same context files (<code>.cursorrules</code> / <code>CLAUDE.md</code>), complementary tools. The overlap is minimal once you internalize which tool fits which task.</p>
+
+            <h2>MCP and context extensions</h2>
+            <p><strong>MCP</strong> (Model Context Protocol) lets Cursor and Claude Code connect to external data sources and tools — database schemas, internal APIs, ticketing systems, documentation. Add MCP servers so the agent can look up live data without you switching context. Examples: a database MCP server that lets the agent query your schema before writing migrations; a GitHub MCP server that lets it read issue descriptions; a docs MCP that gives it your API reference.</p>
+            <p>Configure MCP servers in Cursor under Settings → MCP, or in Claude Code’s config. Start with one or two high-value sources (your DB schema and your API docs are usually highest value). For ideas on what to add, see <a href=”/blog/best-mcp-servers-cursor-claude-2026.html”>best MCP servers for Cursor and Claude</a>.</p>
+            <p>Other useful configuration: <strong>diff-based review</strong> is not optional — always review changes before applying, especially on large agentic tasks. For discipline around this, see <a href=”/blog/diff-based-workflows-ai-2026.html”>diff-based workflows with AI</a>.</p>
+
+            <h2>Deploying what you build</h2>
+            <p>Once your agentic workflow produces working code, shipping it is the next step. The fastest path from an AI-built app to production: push to GitHub, connect to a host, and deploy on merge.</p>
+            <p><a href=”https://railway.com?referralCode=ZoVi-b” rel=”noopener noreferrer”>Railway</a> is the simplest managed option — connect your GitHub repo, add environment variables, and it deploys automatically on every push. Supports Node, Python, databases, and background workers. For VPS-level control at lower cost, <a href=”https://www.vultr.com/?ref=9876695-9J” rel=”noopener noreferrer”>Vultr</a> gives you a full server from $2.50/mo with GPU options for AI inference. For the full deployment guide, see <a href=”/blog/deploy-ai-apps-production-2026.html”>deploying AI apps to production</a>.</p>
+
+            <div class=”cta-box” aria-label=”Deploy your output”>
+                <p><strong>Built something with Cursor or Claude Code?</strong> <a href=”https://railway.com?referralCode=ZoVi-b” rel=”noopener noreferrer”>Railway</a> deploys it in minutes — connect your repo, add env vars, done. <a href=”https://railway.com?referralCode=ZoVi-b” rel=”noopener noreferrer”>Deploy on Railway →</a></p>
+            </div>
 
             <h2>Our take</h2>
-            <p>For most teams in 2026, the sweet spot is Cursor for IDE-centric agentic work (features, refactors, debugging) and Claude Code for terminal-first and scripted tasks. Add MCP where you need live data or external tools, and always review diffs before applying. If you’re building a full <a href="/blog/devex-stack-2026.html">DevEx stack</a>, agentic workflows are the core—pair them with clear rules, security in CI, and good onboarding so the whole team can run them safely.</p>
+            <p>For most teams in 2026, the sweet spot is Cursor for IDE-centric agentic work (features, refactors, debugging) and Claude Code for terminal-first and scripted tasks. Configure both with good context files (<code>.cursorrules</code> / <code>CLAUDE.md</code>), write specs before running agents, and review every diff. Add <a href=”https://braingrid.link/stoic” rel=”noopener noreferrer”>BrainGrid</a> to structure your tasks before they hit the agent — cleaner input means better output in fewer rounds. If you’re building a full <a href=”/blog/devex-stack-2026.html”>DevEx stack</a>, agentic workflows are the core — pair them with security in CI and good onboarding so the whole team can run them safely.</p>
 
-            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-agentic-coding-tools-2026.html">Best agentic coding tools 2026</a>, <a href="/blog/multi-agent-coding-2026.html">Multi-agent coding 2026</a>.</p>
+            <p class=”related” style=”margin-top: 1.5rem;”><strong>Related:</strong> <a href=”/blog/cursor-vs-copilot-2026.html”>Cursor vs Copilot 2026</a>, <a href=”/blog/best-ai-coding-assistant-2026.html”>Best AI coding assistant 2026</a>, <a href=”/blog/best-agentic-coding-tools-2026.html”>Best agentic coding tools 2026</a>, <a href=”/blog/claude-code-vs-cursor-agent-2026.html”>Claude Code vs Cursor Agent</a>, <a href=”/blog/deploy-ai-apps-production-2026.html”>Deploy AI apps to production</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
                 <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
@@ -155,7 +210,7 @@
         "description": "Run agentic workflows with Cursor and Claude Code in 2026: setup, patterns, and tools that plug in.",
         "url": "https://codepipelines.com/blog/agentic-workflows-cursor-claude-2026.html",
         "datePublished": "2026-03-02",
-        "dateModified": "2026-03-02",
+        "dateModified": "2026-03-09",
         "author": {
             "@type": "Organization",
             "name": "Code Pipelines",
