@@ -94,6 +94,9 @@
         }
         footer a { color: var(--accent); }
         footer a:hover { color: var(--accent-muted); }
+        table { width: 100%; border-collapse: collapse; margin: calc(var(--space) * 3) 0; }
+        th, td { border: 1px solid var(--accent); padding: 12px; text-align: left; }
+        th { color: #fff; }
     </style>
 </head>
 <body>
@@ -112,24 +115,93 @@
             <h1>Cursor pricing 2026: credits, plans, and hidden costs</h1>
             <p class="meta">2026-03-02 · Code Pipelines</p>
 
-            <p>Cursor moved to a credit-based model. Here’s how pricing works in 2026, what to expect at each tier, and how to avoid surprise costs while still shipping with agentic workflows.</p>
+            <p>Cursor uses a credit-based pricing model in 2026. Here’s exactly how credits work, what each plan includes, what burns credits fast, and how to get the most out of your spend — whether you’re on the free tier or Pro.</p>
 
             <h2>How Cursor credits work</h2>
-            <p>Cursor uses a <strong>credit-based system</strong> (replacing the earlier request-based tiers). Each AI request (completion, chat, Agent action) consumes credits. How many depends on the model (e.g. fast vs powerful) and the type of use (inline vs long context). Credits refresh on your billing cycle; unused credits don’t roll over. Free tier gives a limited amount so you can try the product; Pro and higher tiers include more credits and premium models.</p>
-            <p>So your real cost isn’t just the subscription—it’s usage. Heavy Agent mode or large context windows burn more credits. Check <a href="https://cursor.com/pricing">Cursor’s pricing page</a> for current credit allotments and per-request costs so you can estimate monthly spend.</p>
-            <h2>Plan tiers and rough costs</h2>
-            <p>Typical 2026 structure: <strong>Free</strong> (limited credits, good for trying); <strong>Pro</strong> (more credits, premium models, around $20/mo); <strong>Teams/Business</strong> (per-seat, team features, higher limits). Exact numbers and credit allotments change—always confirm on <a href="https://cursor.com/pricing">cursor.com/pricing</a>. Enterprise plans exist for larger teams with SSO and compliance needs.</p>
-            <p>Hidden costs: (1) <strong>Overage</strong> if you exceed included credits. (2) <strong>Premium models</strong> costing more per request. (3) <strong>Context size</strong>—bigger context can mean more credits per chat. Monitor usage in the first month so you’re not surprised.</p>
+            <p>Cursor’s AI features run on a <strong>request-based credit system</strong>. Every AI interaction consumes requests — inline completions, chat messages, and Agent mode actions each count. There are two types:</p>
+            <ul>
+                <li><strong>Fast requests</strong> — use the premium model tier (e.g. GPT-4o, Claude 3.5/3.7 Sonnet). Faster responses, higher quality. These are capped per plan.</li>
+                <li><strong>Slow requests</strong> — same models but lower priority queue. Slower, but included in unlimited quantities on Pro and above. Useful for non-urgent tasks.</li>
+            </ul>
+            <p>Credits refresh on your monthly billing cycle. Unused fast requests don’t roll over. The free tier gives a fixed allocation to try the IDE; Pro gives you 500 fast requests plus unlimited slow. Heavy Agent mode use — where the AI takes many sequential actions — can burn through fast requests faster than you’d expect because each tool call (read file, edit, terminal command) counts.</p>
+
+            <h2>Plan tiers: what you actually get</h2>
+            <table>
+                <thead><tr><th>Plan</th><th>Price</th><th>Fast requests</th><th>Slow requests</th><th>Key features</th></tr></thead>
+                <tbody>
+                    <tr><td>Hobby (Free)</td><td>$0</td><td>50/mo</td><td>200/mo</td><td>Full IDE, all models, limited AI use</td></tr>
+                    <tr><td>Pro</td><td>$20/mo</td><td>500/mo</td><td>Unlimited</td><td>Premium models, full Agent mode, priority queue</td></tr>
+                    <tr><td>Business</td><td>$40/user/mo</td><td>500/user/mo</td><td>Unlimited</td><td>Privacy mode (no training), SSO, team admin, centralized billing</td></tr>
+                    <tr><td>Enterprise</td><td>Custom</td><td>Custom</td><td>Unlimited</td><td>Dedicated support, compliance, audit logs, higher limits</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Key difference between Pro and Business:</strong> Privacy mode. On Business, your code is not used to train Cursor’s models. For individuals and most small teams, Pro is fine. For companies with IP concerns or regulated code, Business is the correct tier.</p>
+            <p>Always confirm current numbers at cursor.com/pricing — Cursor adjusts allocations as the product evolves.</p>
+
+            <h2>How Cursor compares to alternatives on price</h2>
+            <table>
+                <thead><tr><th>Tool</th><th>Solo dev</th><th>Team (per seat)</th><th>Pricing model</th></tr></thead>
+                <tbody>
+                    <tr><td>Cursor Pro</td><td>$20/mo</td><td>$40/mo (Business)</td><td>Credit-based (500 fast/mo)</td></tr>
+                    <tr><td>GitHub Copilot</td><td>$10/mo</td><td>$19–39/mo</td><td>Flat (unlimited completions)</td></tr>
+                    <tr><td>Windsurf Pro</td><td>$15/mo</td><td>$30/mo</td><td>Flat (unlimited Cascade flows)</td></tr>
+                    <tr><td>Claude Code CLI</td><td>$20/mo (Claude Pro)</td><td>API usage-based</td><td>Subscription or pay-per-token</td></tr>
+                    <tr><td>Tabnine Dev</td><td>~$12/mo</td><td>Custom enterprise</td><td>Flat per seat</td></tr>
+                </tbody>
+            </table>
+            <p>Cursor Pro is more expensive than Copilot ($10) and Windsurf ($15) but includes a full AI-native IDE, Agent mode, and multi-model access. If you’re comparing purely on price, Copilot Individual is cheapest for flat unlimited use. If you run long agentic sessions daily and hate counting credits, Windsurf Pro’s unlimited flat model may be a better fit. See the full head-to-head at <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>.</p>
+
+            <h2>What burns credits fast</h2>
+            <p>Not all Cursor use is equal. Here’s what eats through fast requests quickly vs what’s efficient:</p>
+            <p><strong>High credit burn:</strong></p>
+            <ul>
+                <li><strong>Agent mode on large codebases</strong> — each file read, edit, and terminal command counts. A multi-file refactor can use 10–30 fast requests in a single session.</li>
+                <li><strong>Long chat with full codebase context</strong> — the more context you include, the more each request costs in tokens. Including entire files you don’t need wastes credits.</li>
+                <li><strong>Back-and-forth debugging</strong> — vague prompts that require many follow-up turns to clarify. 10 rounds on one task = 10 requests.</li>
+                <li><strong>Premium model selection</strong> — always using the most powerful model (e.g. Claude 3.7 Sonnet or o1) when a faster model would do the job.</li>
+            </ul>
+            <p><strong>Low credit burn:</strong></p>
+            <ul>
+                <li>Inline completions (tab completions count as completions, not fast requests on Pro)</li>
+                <li>Slow requests for non-urgent tasks (unlimited on Pro)</li>
+                <li>Targeted chats with scoped context (only the files relevant to the task)</li>
+                <li>Using a mid-tier model (e.g. Claude Haiku or GPT-4o-mini) for simple tasks</li>
+            </ul>
+
+            <h2>Worked example: a typical Pro dev day</h2>
+            <p>To make it concrete — here’s what a moderate usage day looks like on Cursor Pro:</p>
+            <ul>
+                <li>Morning: 3 Agent tasks (add feature, write tests, fix bug) × ~8 fast requests each = ~24 fast requests</li>
+                <li>Afternoon: 10 chat rounds on a tricky bug = ~10 fast requests</li>
+                <li>End of day: 2 quick code reviews in chat = ~4 fast requests</li>
+                <li><strong>Total: ~38 fast requests</strong> for a productive day</li>
+            </ul>
+            <p>At 500 fast requests/mo, that’s roughly 13 days of heavy use before you hit your allocation — after which you fall back to slow requests (still usable, just slower). Light users (mostly inline completion, occasional chat) might use 50–100 fast requests a month and never notice the cap. The dev who runs Agent mode for hours every day is the one who feels it.</p>
+
             <h2>How to reduce credit burn</h2>
-            <p>Use <strong>Cursor rules</strong> and clear project context so the AI needs fewer follow-up turns. Scope chats to the task at hand instead of dumping the whole codebase. For bigger features, write a short spec or task list first—tools like <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> help Cursor and Claude Code users do that without leaving their stack—so the agent has a clear target and you don’t burn credits on back-and-forth.</p>
+            <p>You can extend your 500 fast requests significantly with a few habits:</p>
+            <ul>
+                <li><strong>Write specs before Agent mode.</strong> A clear, scoped task description gets the right result in 1–2 rounds instead of 5–10. Tools like <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> are built for exactly this — structured task specs for Cursor and Claude Code users that reduce back-and-forth.</li>
+                <li><strong>Use .cursorrules.</strong> Project-level rules give Cursor context it would otherwise ask you for. Fewer clarification rounds = fewer requests used.</li>
+                <li><strong>Scope your context.</strong> Add only the files the agent actually needs. Cursor’s @ symbol lets you attach specific files; use it instead of letting the agent read everything.</li>
+                <li><strong>Match model to task.</strong> Use fast/lighter models for simple completions and code review. Save the heavy models (Claude 3.7, o1) for complex reasoning tasks.</li>
+                <li><strong>Use slow requests for non-urgent work.</strong> Refactoring a module that doesn’t need to be done right now? Queue it as a slow request and preserve your fast allocation for real-time work.</li>
+            </ul>
+
             <div class="cta-box" aria-label="Reduce credit burn">
-                <p><strong>Reduce credit burn:</strong> Pair Cursor with <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> so the agent gets clear specs on the first try. Fewer rounds = fewer credits. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
+                <p><strong>Reduce credit burn:</strong> Pair Cursor with <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> to spec tasks before Agent mode runs them. Clearer input = fewer rounds = fewer credits burned. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
             </div>
 
-            <h2>Getting more value from your stack</h2>
-            <p>Use <strong>Cursor rules</strong> and scoped context so the AI gets it right in fewer turns. Pair Cursor with a complementary tool like <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a>—built for Cursor and Claude Code users—to keep quality high without burning extra credits on back-and-forth. For predictable pricing and no credit math, some teams use GitHub Copilot for daily work and Cursor (or Claude Code) for heavier agentic tasks; that split can keep costs and value in balance.</p>
+            <h2>Is Cursor Pro worth it?</h2>
+            <p>For most developers doing serious work: yes. $20/mo is roughly the cost of 2–3 hours of a contractor’s time. If Cursor saves you even 30 minutes a week on real tasks, it pays for itself. The question isn’t really "is $20/mo too much" — it’s "am I using it effectively enough to get that value."</p>
+            <p>Cursor Pro is worth it if you: regularly use Agent mode for multi-file tasks, want access to the latest models (Claude 3.7, GPT-4o) without managing API keys, and prefer one tool that handles both completions and agentic work. It’s less compelling if you primarily want inline completions only — Copilot at $10/mo flat is better value for that use case.</p>
+            <p>Business tier ($40/user/mo) is worth it if: you’re on a team with IP or compliance concerns, need SSO for access management, or want audit trails. For solo devs, Pro is sufficient.</p>
 
-            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/ai-dev-stack-setup-2026.html">AI dev stack setup 2026</a>.</p>
+            <h2>Getting more value from your stack</h2>
+            <p>The highest ROI move for Cursor Pro users: pair it with a planning layer. Writing a 5-minute spec before starting an Agent task consistently gets better results in fewer requests than jumping straight into vague prompts. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> is built for this — it helps Cursor and Claude Code users structure tasks, write specs, and maintain context across sessions, which directly reduces credit burn and improves output.</p>
+            <p>Some teams split usage: Copilot ($10/mo flat) for day-to-day inline work, Cursor for heavier agentic tasks. That keeps the monthly bill predictable. Others go all-in on Cursor Pro and use slow requests for anything that can wait. Either approach works — pick based on how much of your coding is Agent-mode vs inline completion.</p>
+
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/windsurf-vs-cursor-vs-claude-code-2026.html">Windsurf vs Cursor vs Claude Code 2026</a>, <a href="/blog/ai-dev-stack-setup-2026.html">AI dev stack setup 2026</a>.</p>
             <div class="cta-box" aria-label="Compare tools">
                 <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
                 <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
@@ -150,7 +222,7 @@
         "description": "Cursor pricing in 2026: how credits work, plan tiers, and what costs to watch. Plus how to get more value from your AI dev stack.",
         "url": "https://codepipelines.com/blog/cursor-pricing-2026.html",
         "datePublished": "2026-03-02",
-        "dateModified": "2026-03-04",
+        "dateModified": "2026-03-09",
         "author": {
             "@type": "Organization",
             "name": "Code Pipelines",
