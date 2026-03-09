@@ -142,6 +142,18 @@ Future articles: same CTA box; generator already uses the affiliate link.
 
 ---
 
+## Railway referral (deploy/hosting content)
+
+**Program:** [Railway Affiliate](https://railway.com/affiliate). $20 per referral. Instant approval.
+
+**Live link:** `https://railway.com?referralCode=ZoVi-b`
+
+**Where to use:** Any deploy or hosting content — `best-hosting-for-developers-2026.html`, `deploy-ai-apps-production-2026.html`, and future articles covering "deploy Node/Python app", "best managed hosting for developers". Compare Railway vs Vultr and link both. Generator: `RAILWAY_REFERRAL_URL`.
+
+**Note on Render:** Render has no affiliate program (community-only). Mention in content where honest, but do not pursue affiliate approval — none exists.
+
+---
+
 ## Vultr referral (deploy/cloud content)
 
 **Program:** [Vultr Referral Program](https://www.vultr.com/company/referral-program/). No approval needed — sign up, get link from customer portal. Tell a friend: earn up to **$100** per verified referral (or **$10** per paid signup on standard offer). Referred users get **$300** to test (promo); must be active 30+ days and use ≥$100 in payments to count. Payouts on business day after 1st and 15th of each month.
