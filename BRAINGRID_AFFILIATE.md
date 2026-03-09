@@ -39,7 +39,7 @@ No further link replacement needed. For new posts, keep the same CTA: “We reco
 ### Top affiliate plays (codepipelines.com now)
 
 1. **BrainGrid** — 15% recurring; Cursor/Claude Code; **live sitewide** ✅  
-2. **DigitalOcean** — 10% recurring for 12 months; **priority for deploy/hosting content.** Apply and use DO link in “deploy on DigitalOcean” articles (see Content plan #29–31).  
+2. **DigitalOcean** — 10% recurring for 12 months; **live** ✅ CJ link: `https://www.kqzyfj.com/click-101694890-17192219` (property 101702490). Use in deploy/hosting content.  
 3. **Vultr** — **Live.** Referral: $10 per paid signup (standard) or **Give $300, Get $100** (limited-time promo). Referred users must be active 30+ days and use ≥$100 to count. Payouts 1st and 15th of each month. Use in same deploy/cloud content as DO (#29, #31, deploy AI apps). See “Vultr referral” section below.  
 5. **Tabnine** — Applied; **approval/referral link difficult** (partners page is B2B; email/chats may or may not yield creator link). Keep mentioning Tabnine in content for SEO; add affiliate link only if/when approved.  
 6. **Vercel** — Applied via partners form (Primary interest: Register a referral); **approval uncertain.** Same as Tabnine: keep in content where relevant, add link if approved.  
@@ -53,7 +53,7 @@ No further link replacement needed. For new posts, keep the same CTA: “We reco
 
 1. **Traffic first** — Expand Tier 1–2 article **bodies** (most posts are scaffolded; add 1.5–2.5k words to comparisons).  
 2. **BrainGrid is live** — Every post already has the CTA; focus on quality and internal links.  
-3. **Deploy/hosting: DigitalOcean + Vultr** — Get DO affiliate approval; **Vultr link is already live.** Create/expand content where readers deploy on DO or Vultr (multi-agent cloud, deploy AI apps, serverless agentic pipelines) and use both DO and Vultr referral links in #29, #31, and deploy-AI-apps post. Don’t depend on Tabnine/Vercel approvals.  
+3. **Deploy/hosting: DigitalOcean + Vultr** — **Both live.** DO CJ link and Vultr referral link are in `best-hosting-for-developers-2026.html` and `deploy-ai-apps-production-2026.html`. Expand these and Content plan #29, #31 with both links.  
 4. **Tabnine/Vercel** — Already applied; add links only if approved. Keep mentioning in content for SEO and usefulness.  
 5. **Optional** — Security/hosting articles when you have or plan those affiliate programs (Snyk, GitGuardian, Kinsta, Cloudways).
 
@@ -151,6 +151,20 @@ Future articles: same CTA box; generator already uses the affiliate link.
 **Where to use:** Any deploy or hosting content — `best-hosting-for-developers-2026.html`, `deploy-ai-apps-production-2026.html`, and future articles covering "deploy Node/Python app", "best managed hosting for developers". Compare Railway vs Vultr and link both. Generator: `RAILWAY_REFERRAL_URL`.
 
 **Note on Render:** Render has no affiliate program (community-only). Mention in content where honest, but do not pursue affiliate approval — none exists.
+
+---
+
+## DigitalOcean referral (deploy/hosting content)
+
+**Program:** CJ (Commission Junction), Advertiser ID 6776953. **10% recurring for 12 months** per sale. Approved via CloudPipelines account; CodePipelines property ID 101702490 active.
+
+**Live link:** `https://www.kqzyfj.com/click-101694890-17192219` — "Link to the sign up page - evergreen" (Text Link, Link ID 17192219)
+
+**Where used (live):**
+- `best-hosting-for-developers-2026.html` — table row, inline "Side project" paragraph, CTA box
+- `deploy-ai-apps-production-2026.html` — inline "Hosting and runtimes" paragraph, CTA box
+
+**Where to add next:** Content plan #29 (Best cloud for multi-agent AI 2026), #31 (Serverless/managed for agentic pipelines). Compare DO vs Vultr and link both. Generator: `DIGITALOCEAN_REFERRAL_URL`.
 
 ---
 
