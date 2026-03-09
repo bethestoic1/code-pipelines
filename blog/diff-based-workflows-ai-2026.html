@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diff-based workflows: moving beyond blind AI rewrites | Code Pipelines</title>
-    <meta name="description" content="Diff-based workflows in 2026: move from “blind” AI rewrites to controlled, reviewable patches and merges.">
+    <title>Diff-based workflows with AI 2026: moving beyond blind rewrites | Code Pipelines</title>
+    <meta name="description" content="Diff-based workflows in 2026: how to keep AI code changes reviewable, safe, and traceable — with practical setup for Cursor, Claude Code, and git.">
     <link rel="canonical" href="https://codepipelines.com/blog/diff-based-workflows-ai-2026.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://codepipelines.com/blog/diff-based-workflows-ai-2026.html">
-    <meta property="og:title" content="Diff-based workflows: moving beyond blind AI rewrites">
-    <meta property="og:description" content="Diff-based workflows in 2026: move from “blind” AI rewrites to controlled, reviewable patches and merges.">
+    <meta property="og:title" content="Diff-based workflows with AI 2026: moving beyond blind rewrites">
+    <meta property="og:description" content="Diff-based workflows in 2026: how to keep AI code changes reviewable, safe, and traceable — with practical setup for Cursor, Claude Code, and git.">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Diff-based workflows: moving beyond blind AI rewrites">
+    <meta name="twitter:title" content="Diff-based workflows with AI 2026: moving beyond blind rewrites">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="twitter:description" content="Diff-based workflows in 2026: move from “blind” AI rewrites to controlled, reviewable patches and merges.">
+    <meta name="twitter:description" content="Diff-based AI workflows in 2026: keep changes reviewable and safe with Cursor, Claude Code, and git.">
     <style>
         :root {
             --bg: #0d0d0d;
@@ -73,6 +73,7 @@
         main { padding: calc(var(--space) * 4) 0; }
         article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
         article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        article h3 { color: var(--accent); font-size: 1rem; margin-top: calc(var(--space) * 4); }
         .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
         article a:link { color: var(--link); text-decoration: underline; }
         article a:visited { color: var(--link-visited); }
@@ -85,6 +86,36 @@
         }
         .cta-box a { color: var(--accent); font-weight: bold; }
         .cta-box a:hover { color: var(--accent-muted); }
+        code { background: var(--surface); padding: 2px 6px; border-radius: var(--radius); font-size: 0.9em; }
+        pre {
+            background: var(--surface);
+            border: 1px solid #333;
+            padding: calc(var(--space) * 2);
+            border-radius: var(--radius);
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: calc(var(--space) * 2) 0;
+            line-height: 1.5;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: calc(var(--space) * 3) 0;
+            font-size: 0.9em;
+        }
+        th {
+            background: var(--surface);
+            color: var(--accent);
+            text-align: left;
+            padding: 10px 12px;
+            border: 1px solid #333;
+        }
+        td {
+            padding: 9px 12px;
+            border: 1px solid #333;
+            vertical-align: top;
+        }
+        tr:nth-child(even) td { background: #111; }
         footer {
             margin-top: calc(var(--space) * 8);
             padding-top: calc(var(--space) * 3);
@@ -94,6 +125,7 @@
         }
         footer a { color: var(--accent); }
         footer a:hover { color: var(--accent-muted); }
+        @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
     </style>
 </head>
 <body>
@@ -103,34 +135,142 @@
         <nav aria-label="Main">
             <a href="/">Home</a>
             <a href="/blog/">Blog</a>
-            <a href="/blog/cursor-vs-copilot-2026.html">Compare AI coding tools 2026</a>
+            <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows 2026</a>
         </nav>
     </header>
     <main id="main">
     <p style="font-size:0.8em;color:var(--muted);margin:0;padding:6px 0 0 0;">Advertising disclosure: We earn commissions when you shop through the links below.</p>
         <article>
-            <h1>Diff-based workflows: moving beyond blind AI rewrites</h1>
-            <p class="meta">2026-03-02 · Code Pipelines</p>
+            <h1>Diff-based workflows with AI 2026: moving beyond blind rewrites</h1>
+            <p class="meta">2026-03-02 · Updated 2026-03-09 · Code Pipelines</p>
 
-            <p>AI can change a lot of code at once. Diff-based workflows keep changes visible and reviewable so you keep control.</p>
+            <p>The fastest way to lose confidence in an AI coding tool is to hit "accept all" on a large Agent mode session without reading the diff — and then spend an hour figuring out what it changed and why. Diff-based workflows are the discipline that prevents this: every AI-generated change is proposed as a reviewable diff before it is applied, committed as a logical patch so git history stays readable, and run through the same CI checks as human-written code. This guide explains how to build that discipline into your workflow with Cursor, Claude Code, and git.</p>
 
-            <h2>Why diff-based workflows matter</h2>
-            <p>When AI can change many files at once, <strong>blind apply</strong> is risky—you can’t review hundreds of lines in one click. <strong>Diff-based workflows</strong> mean: the AI proposes changes as a diff (or patch); you review in your editor or PR; you accept, reject, or edit; then you apply. That keeps you in control, preserves code quality, and makes it safe to use agentic tools at scale. No “rewrite entire module without review.”</p>
-            <h2>How to implement them in your stack</h2>
-            <p>Use Cursor Agent or Claude Code in a way that surfaces diffs before apply: Cursor shows edits in the editor; you can accept per file or per hunk. In CI, run AI-generated code through the same review as human code—PRs, required review, and tests. Establish a rule: “no direct apply of large AI changes without diff review.” That’s your baseline diff-based workflow.</p>
-            <h2>Tools that support review and apply</h2>
-            <p><strong>Cursor</strong> and <strong>Claude Code CLI</strong> both propose changes you can review before accepting. Cursor integrates with git and shows diffs in the IDE; Claude Code can write to files with your approval. Pair them with normal git workflow: commit AI-proposed changes as logical patches so history stays readable. Tools like <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> that plug into Cursor and Claude Code fit the same pattern—propose, review, then apply.</p>
+            <h2>The problem with blind apply</h2>
+            <p>Agentic tools can modify dozens of files in a single session. The temptation is to review the final result — does the feature work? — and skip reviewing the individual changes. This creates several problems that compound over time:</p>
+            <ul>
+                <li><strong>Silent regressions:</strong> The agent fixes the bug you asked about but quietly changes something unrelated it "thought" was wrong. Your tests catch it later — or don't.</li>
+                <li><strong>Unreadable git history:</strong> Commits like "AI: implement feature X" that touch 30 files make blame, bisect, and rollback exponentially harder.</li>
+                <li><strong>Context drift:</strong> When you do not read each change, you lose understanding of your own codebase. Over weeks this adds up to a codebase where the developer is not sure what anything does.</li>
+                <li><strong>Cascading errors:</strong> One agent session's unreviewed change becomes the context for the next session. Mistakes compound.</li>
+            </ul>
 
-            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a>, <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows Cursor Claude</a>, <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices</a>.</p>
-            <div class="cta-box" aria-label="Compare tools">
-                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
+            <h2>What a diff-based workflow looks like</h2>
+            <p>The principle is simple: <strong>no AI change reaches your codebase without you seeing it as a diff first.</strong> In practice this means:</p>
+            <ol>
+                <li>Agent proposes changes (Cursor shows inline diffs; Claude Code writes to a branch or shows changes before applying)</li>
+                <li>You review each changed file — not just "does it look right" but "do I understand what changed and why"</li>
+                <li>You accept, reject, or edit individual hunks — not always all-or-nothing</li>
+                <li>You commit in logical chunks with meaningful messages</li>
+                <li>CI runs on the result — tests, type checks, linting</li>
+            </ol>
+            <p>This does not have to be slow. Reviewing a well-scoped Agent session that changed 3–4 files takes 2–3 minutes. Reviewing a poorly-scoped one that touched 20 files takes 20 minutes and should be a signal to reduce the scope of future sessions.</p>
+
+            <h2>Diff review in Cursor</h2>
+            <p>Cursor's IDE diff UI is the best implementation of diff-based AI review currently available. When Agent mode or inline edits propose changes, you see them as red/green diffs in the editor — exactly like reviewing a PR. You can:</p>
+            <ul>
+                <li><strong>Accept all changes</strong> in a file with one click — use this only when changes are small and obvious</li>
+                <li><strong>Reject all changes</strong> in a file — useful when the agent went in the wrong direction</li>
+                <li><strong>Accept individual hunks</strong> — the most precise option; accept the parts you want, reject the parts you do not</li>
+                <li><strong>Edit inline</strong> — modify the proposed change directly before accepting</li>
+            </ul>
+
+            <h3>Cursor diff review habits that save time</h3>
+            <ul>
+                <li>Review files in order of risk: files with business logic first, config/test files last</li>
+                <li>If a file has more than ~50 lines changed and you did not expect it, read it fully before accepting</li>
+                <li>Check that imports added by the agent actually exist in your project</li>
+                <li>Verify that any new environment variables the agent references are ones you have defined</li>
+                <li>After accepting all changes, run <code>git diff</code> one more time before committing — the full picture is clearer than file-by-file</li>
+            </ul>
+
+            <h2>Diff review in Claude Code CLI</h2>
+            <p>Claude Code CLI operates in the terminal, so the diff review workflow is git-native. The recommended approach:</p>
+            <pre># Before starting a session, create a branch
+git checkout -b ai/feature-name
+
+# Run your Claude Code session — it writes files directly
+claude
+
+# After the session, review everything before committing
+git diff
+
+# Stage and commit in logical chunks, not all at once
+git add -p   # interactive patch staging
+git commit -m "feat: add email verification endpoint"
+
+git add -p
+git commit -m "test: add tests for email verification"</pre>
+
+            <p><code>git add -p</code> (interactive patch mode) is your best friend for diff-based Claude Code workflows. It lets you stage individual hunks from each file, so even if Claude Code changed 10 files in one session, you can commit the changes in 3–4 logical commits with clear messages.</p>
+
+            <h2>Committing AI changes with readable history</h2>
+            <p>One of the most common complaints about AI-assisted development is that git history becomes a mess of large, undescribed commits. The fix is the same discipline you would apply to human code: commit in logical units with meaningful messages. The fact that the AI wrote the code does not change what a good commit looks like.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bad AI commit habit</th>
+                        <th>Better approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"AI changes" — 30 files changed</td>
+                        <td>3–4 commits, each touching a logical area</td>
+                    </tr>
+                    <tr>
+                        <td>All changes in one <code>git add .</code></td>
+                        <td><code>git add -p</code> to stage by hunk</td>
+                    </tr>
+                    <tr>
+                        <td>No ticket or context in message</td>
+                        <td>Reference the spec or issue: "feat: add user search (LIN-482)"</td>
+                    </tr>
+                    <tr>
+                        <td>Commit then review in PR</td>
+                        <td>Review diff before committing — fix before it is in history</td>
+                    </tr>
+                    <tr>
+                        <td>Tests committed separately as an afterthought</td>
+                        <td>Tests committed alongside the code they cover</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Branch strategy for AI sessions</h2>
+            <p>A simple branch strategy keeps AI-generated work reviewable and reversible:</p>
+            <ul>
+                <li><strong>One branch per feature or task</strong> — even if a session is short. <code>git checkout -b ai/add-search-endpoint</code> takes 2 seconds and gives you a clean rollback point.</li>
+                <li><strong>Branch protection on main</strong> — require PRs and CI before merge. This applies to AI-generated code exactly as it does to human code.</li>
+                <li><strong>Short-lived branches</strong> — AI sessions produce focused changes. Merge within a day or two. Long-lived AI branches accumulate conflicts and context debt.</li>
+                <li><strong>Descriptive branch names</strong> — <code>ai/refactor-auth-middleware</code> not <code>ai-branch-3</code>. Future you will thank present you.</li>
+            </ul>
+
+            <h2>CI as the final diff check</h2>
+            <p>Even with careful human review, things slip through. Your CI pipeline is the automated safety net — it reviews your diff from a different angle (correctness) than you do (intent). Every AI-generated branch should run:</p>
+            <ul>
+                <li>Full test suite — catches regressions the AI introduced silently</li>
+                <li>TypeScript type check — catches the <code>any</code> types and missing types agents sometimes introduce</li>
+                <li>Linter — enforces conventions the agent may have drifted from</li>
+                <li>Secret scanning — catches API keys or credentials the agent may have accidentally included</li>
+            </ul>
+            <p>If CI fails on an AI branch, treat it the same as a human code failure: fix the root cause, do not bypass the check.</p>
+
+            <h2>Writing better specs to reduce review load</h2>
+            <p>The size of the diff you have to review is directly proportional to how precise your initial prompt was. Vague prompt → large, wandering diff → long review. Precise prompt → targeted diff → fast review. Using <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> to write a structured task spec before each Agent session — what files to touch, what the expected output looks like, what to leave alone — consistently produces smaller, more focused diffs that take minutes rather than hours to review.</p>
+
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows with Cursor and Claude Code</a>, <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices</a>, <a href="/blog/claude-code-vs-cursor-agent-2026.html">Claude Code vs Cursor Agent</a>, <a href="/blog/devex-stack-2026.html">DevEx stack 2026</a>.</p>
+
+            <div class="cta-box" aria-label="BrainGrid — smaller diffs, faster reviews">
+                <p><strong>Better specs = smaller diffs = faster reviews.</strong> <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> is the task spec layer for Cursor and Claude Code — write a focused spec before each session and spend less time reviewing what the agent changed.</p>
+                <p><a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
         <p>&copy; 2026 CodePipelines.com</p>
-        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a> · <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a> · <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a></p>
+        <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/agentic-workflows-cursor-claude-2026.html">Agentic workflows</a> · <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules</a> · <a href="/blog/devex-stack-2026.html">DevEx stack 2026</a></p>
         <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a>.</p>
     </footer>
 
@@ -138,11 +278,11 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Diff-based workflows: moving beyond blind AI rewrites",
-        "description": "Diff-based workflows in 2026: move from “blind” AI rewrites to controlled, reviewable patches and merges.",
+        "headline": "Diff-based workflows with AI 2026: moving beyond blind rewrites",
+        "description": "Diff-based workflows in 2026: how to keep AI code changes reviewable, safe, and traceable — with practical setup for Cursor, Claude Code, and git.",
         "url": "https://codepipelines.com/blog/diff-based-workflows-ai-2026.html",
         "datePublished": "2026-03-02",
-        "dateModified": "2026-03-02",
+        "dateModified": "2026-03-09",
         "author": {
             "@type": "Organization",
             "name": "Code Pipelines",
