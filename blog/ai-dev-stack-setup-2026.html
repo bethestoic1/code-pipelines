@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setting up your AI dev stack in 2026 (step-by-step) | Code Pipelines</title>
-    <meta name="description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to agentic workflows and one recommended add-on.">
+    <meta name="description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to context files, MCP servers, and deploying what you build. Cursor, Claude Code, Railway, and more.">
     <link rel="canonical" href="https://codepipelines.com/blog/ai-dev-stack-setup-2026.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://codepipelines.com/blog/ai-dev-stack-setup-2026.html">
     <meta property="og:title" content="Setting up your AI dev stack in 2026 (step-by-step)">
-    <meta property="og:description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to agentic workflows and one recommended add-on.">
+    <meta property="og:description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to context files, MCP servers, and deploying what you build. Cursor, Claude Code, Railway, and more.">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Setting up your AI dev stack in 2026 (step-by-step)">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="twitter:description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to agentic workflows and one recommended add-on.">
+    <meta name="twitter:description" content="Set up your AI dev stack in 2026: step-by-step from IDE and CLI to context files, MCP servers, and deploying what you build.">
     <style>
         :root {
             --bg: #0d0d0d;
@@ -73,6 +73,7 @@
         main { padding: calc(var(--space) * 4) 0; }
         article h1 { color: #fff; text-transform: uppercase; font-size: 1.25rem; }
         article h2 { color: #fff; font-size: 1.1rem; margin-top: calc(var(--space) * 5); }
+        article h3 { color: var(--accent); font-size: 1rem; margin-top: calc(var(--space) * 4); }
         .meta { color: var(--muted); font-size: 0.9em; margin-bottom: calc(var(--space) * 4); }
         article a:link { color: var(--link); text-decoration: underline; }
         article a:visited { color: var(--link-visited); }
@@ -85,6 +86,21 @@
         }
         .cta-box a { color: var(--accent); font-weight: bold; }
         .cta-box a:hover { color: var(--accent-muted); }
+        code { background: var(--surface); padding: 2px 6px; border-radius: var(--radius); font-size: 0.9em; }
+        pre {
+            background: var(--surface);
+            border: 1px solid #333;
+            padding: calc(var(--space) * 2);
+            border-radius: var(--radius);
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: calc(var(--space) * 2) 0;
+            line-height: 1.5;
+        }
+        table { width: 100%; border-collapse: collapse; margin: calc(var(--space) * 3) 0; font-size: 0.9em; }
+        th { background: var(--surface); color: var(--accent); padding: 10px 12px; text-align: left; border-bottom: 1px solid #333; }
+        td { padding: 10px 12px; border-bottom: 1px solid #222; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
         footer {
             margin-top: calc(var(--space) * 8);
             padding-top: calc(var(--space) * 3);
@@ -94,6 +110,7 @@
         }
         footer a { color: var(--accent); }
         footer a:hover { color: var(--accent-muted); }
+        @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
     </style>
 </head>
 <body>
@@ -110,28 +127,263 @@
     <p style="font-size:0.8em;color:var(--muted);margin:0;padding:6px 0 0 0;">Advertising disclosure: We earn commissions when you shop through the links below.</p>
         <article>
             <h1>Setting up your AI dev stack in 2026 (step-by-step)</h1>
-            <p class="meta">2026-03-02 · Code Pipelines</p>
+            <p class="meta">2026-03-02 · Updated 2026-03-09 · Code Pipelines</p>
 
-            <p>A minimal, repeatable setup for an AI-native dev stack: Cursor or VS Code, Claude Code CLI, and tools that plug in.</p>
+            <p>Most developers in 2026 are running some AI tooling — but most are not running a <em>stack</em>. There is a difference between having Copilot installed and having a coherent setup where your IDE, your CLI, your context files, and your deploy layer all work together. This guide covers the full setup: what to install, how to configure it, what context files to write, and how to wire in a deploy target so you can ship what you build. All step-by-step.</p>
 
-            <h2>Step 1: IDE and primary AI</h2>
-            <p>Pick one primary environment: <strong>Cursor</strong> (AI-native IDE, Agent mode) or <strong>VS Code</strong> plus an AI extension (e.g. Copilot, Tabnine). Install it, open a project, and confirm you get completions and chat. For agentic workflows, Cursor is the simplest single choice; VS Code + extension is better if you need to stay in vanilla VS Code.</p>
-            <h2>Step 2: CLI and agentic</h2>
-            <p>Add <strong>Claude Code CLI</strong> for terminal-based tasks: scripts, migrations, one-off edits. Install from Anthropic's docs and authenticate. Use it in the same repo as your IDE so you have one agentic IDE (Cursor) and one agentic CLI (Claude Code). That covers both "in editor" and "in terminal" workflows.</p>
-            <h2>Step 3: extend and ship faster</h2>
-            <p>Add project <strong>rules</strong> (Cursor rules or equivalent) and basic docs so the AI follows your conventions. Optionally add <strong>MCP</strong> servers for DB/API context. For Cursor and Claude Code users, we recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> to extend the stack and ship faster without switching tools.</p>
+            <h2>What "AI dev stack" means in 2026</h2>
+            <p>An AI dev stack is not just one tool. It is the combination of tools that handle the full development loop: writing code, reviewing code, running the project, and shipping it. In 2026, a complete stack has four layers:</p>
 
-            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>, <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a>, <a href="/blog/developer-onboarding-ai-2026.html">Developer onboarding AI 2026</a>.</p>
-            <div class="cta-box" aria-label="Compare tools">
-                <p><strong>Compare more tools:</strong> <a href="/blog/">See our full DevEx and AI coding tool comparisons</a>.</p>
-                <p><strong>Ship faster with your stack:</strong> We recommend <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> for Cursor and Claude Code users. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
+            <table>
+                <tr>
+                    <th>Layer</th>
+                    <th>What it does</th>
+                    <th>Tools</th>
+                </tr>
+                <tr>
+                    <td>IDE / AI pair programmer</td>
+                    <td>In-editor completions, chat, Agent mode</td>
+                    <td>Cursor, VS Code + Copilot, Windsurf</td>
+                </tr>
+                <tr>
+                    <td>CLI / agentic terminal</td>
+                    <td>One-off scripts, migrations, multi-file edits in terminal</td>
+                    <td>Claude Code CLI</td>
+                </tr>
+                <tr>
+                    <td>Context files</td>
+                    <td>Standing briefing for the AI — stack, conventions, never-list</td>
+                    <td>CLAUDE.md, .cursorrules</td>
+                </tr>
+                <tr>
+                    <td>Deploy / hosting</td>
+                    <td>Run what you build in production</td>
+                    <td>Railway, Vultr, DigitalOcean</td>
+                </tr>
+            </table>
+
+            <p>Optional additions sit on top: MCP servers for live data context, task spec tools like BrainGrid for Agent mode planning, and CI/CD for automated quality gates. But the four layers above are the core. Get those right and everything else plugs in cleanly.</p>
+
+            <h2>Step 1: Install and configure your IDE</h2>
+
+            <h3>Option A: Cursor (recommended for agentic workflows)</h3>
+            <p>Cursor is the simplest single choice if you want Agent mode, codebase-wide context, and AI chat in one tool. Download from cursor.com, install, and open your project. On first open, you will be prompted to sign in and choose a model — Claude 3.5 Sonnet is the default and works well for most tasks.</p>
+
+            <p>Key settings to configure immediately:</p>
+            <ul>
+                <li><strong>Cursor Settings → Features → Codebase indexing</strong> — enable this. It lets @codebase work properly: semantic search across your whole repo.</li>
+                <li><strong>Cursor Settings → Features → Agent mode</strong> — ensure it is on. This is what allows multi-file autonomous edits.</li>
+                <li><strong>Cursor Settings → Privacy → Privacy mode</strong> — turn on if you work with sensitive code. Disables training data usage.</li>
+            </ul>
+
+            <p>Pricing: Cursor has a free Hobby tier (limited fast requests), Pro at $20/month (500 fast requests/month), and Business at $40/month (team features, SSO). For daily use, Pro is the right tier. See our <a href="/blog/cursor-pricing-2026.html">Cursor pricing breakdown</a> for what burns credits fast and how to stretch your budget.</p>
+
+            <h3>Option B: VS Code + GitHub Copilot</h3>
+            <p>If you need to stay in VS Code — team requirements, extension ecosystem, or preference — install GitHub Copilot ($10/month individual, $19/month Business). You get inline completions and a chat panel, but no Agent mode equivalent out of the box. For agentic work you will rely more heavily on Claude Code CLI in the terminal alongside VS Code.</p>
+
+            <h2>Step 2: Install Claude Code CLI</h2>
+            <p>Claude Code CLI is the terminal counterpart to Cursor. Install it via npm:</p>
+
+            <pre>npm install -g @anthropic-ai/claude-code</pre>
+
+            <p>Then authenticate:</p>
+
+            <pre>claude login</pre>
+
+            <p>This opens a browser auth flow. Once authenticated, you are ready to use <code>claude</code> from any directory. Test it:</p>
+
+            <pre>cd your-project
+claude "explain the architecture of this repo"</pre>
+
+            <p>Claude Code reads the directory, finds your files, and gives a project-specific answer — not a generic one. This is the first payoff of the CLI: instant architecture explanation for any codebase you open.</p>
+
+            <p>Pricing: Claude Code CLI is billed via the Anthropic API. For typical daily use (a few coding sessions), expect $10–30/month. Heavy agentic use (long autonomous runs, large repos) can push higher. Claude Pro subscribers get a bundled API quota — check your plan.</p>
+
+            <p>For a full breakdown of what Claude Code can do and best usage patterns, see our <a href="/blog/claude-code-cli-tips-2026.html">Claude Code CLI tips guide</a>.</p>
+
+            <h2>Step 3: Write your context files</h2>
+            <p>This is the highest-leverage setup step and the one most developers skip. Without context files, every AI session starts cold — the model guesses your stack and conventions. With context files, every session starts with the full project briefing already loaded.</p>
+
+            <h3>CLAUDE.md — for Claude Code CLI</h3>
+            <p>Create <code>CLAUDE.md</code> in your repo root. Claude Code loads it automatically at the start of every session. Minimum viable content:</p>
+
+            <pre># CLAUDE.md
+
+## Project
+[1–2 sentences describing what this project does]
+
+## Stack
+- Runtime: [Node 20 / Python 3.12 / etc.]
+- Framework: [Next.js 14 / FastAPI / etc.]
+- Database: [Postgres via Prisma / SQLite / etc.]
+- Testing: [Vitest / pytest / etc.]
+
+## Commands
+- Dev: [pnpm dev / python -m uvicorn / etc.]
+- Test: [pnpm test / pytest / etc.]
+- Type check: [pnpm typecheck / mypy / etc.]
+
+## Structure
+- [Key folders and what lives in each]
+
+## Never
+- Never use `any` in TypeScript
+- Never modify [protected file or dir] without approval
+- Never use console.log — use [logger path]
+- Never commit secrets or .env files</pre>
+
+            <p>Commit this file to the repo root. Every developer and every AI session benefits immediately.</p>
+
+            <h3>.cursorrules — for Cursor</h3>
+            <p>Create <code>.cursorrules</code> in your repo root. Cursor reads it at the start of every session. Content mirrors your CLAUDE.md but can include Cursor-specific instructions (like which @-mentions to use for which tasks). See our detailed <a href="/blog/cursor-rules-best-practices-2026.html">Cursor rules best practices guide</a> for a complete six-section template.</p>
+
+            <p>Both files should be committed to the repo so the whole team benefits — not just you.</p>
+
+            <h2>Step 4: Add MCP servers (optional but high-value)</h2>
+            <p>Model Context Protocol (MCP) servers give your AI tools live access to external data: your database schema, your GitHub issues, your filesystem, live web search. Without MCP, the AI works from files it can read in the repo. With MCP, it can query your actual database or look up a real API response.</p>
+
+            <p>The three MCP servers worth adding early:</p>
+
+            <table>
+                <tr>
+                    <th>Server</th>
+                    <th>What it unlocks</th>
+                    <th>Install</th>
+                </tr>
+                <tr>
+                    <td>@modelcontextprotocol/server-filesystem</td>
+                    <td>Full filesystem read/write beyond the open project</td>
+                    <td><code>npx @modelcontextprotocol/server-filesystem</code></td>
+                </tr>
+                <tr>
+                    <td>mcp-server-postgres</td>
+                    <td>Live schema reads and query execution against your DB</td>
+                    <td><code>npx mcp-server-postgres</code></td>
+                </tr>
+                <tr>
+                    <td>@modelcontextprotocol/server-github</td>
+                    <td>Read issues, PRs, and repo metadata from GitHub API</td>
+                    <td><code>npx @modelcontextprotocol/server-github</code></td>
+                </tr>
+            </table>
+
+            <p>Configure MCP in Cursor via Settings → MCP, or in Claude Code via <code>~/.claude/mcp.json</code>. For a full MCP setup walkthrough including JSON config examples, see our <a href="/blog/best-mcp-servers-cursor-claude-2026.html">best MCP servers guide</a>.</p>
+
+            <h2>Step 5: Set up your deploy layer</h2>
+            <p>An AI dev stack that cannot ship is a prototype machine. Add a deploy target early — ideally before you write significant code — so you are shipping continuously rather than doing a big deployment at the end.</p>
+
+            <h3>Railway — simplest for web apps and APIs</h3>
+            <p>Railway connects to your GitHub repo, detects your runtime, and deploys on every push. Zero config for most Node, Python, and Go projects. Free tier is generous for side projects; paid plans start at $5/month. For any web app or API built with Cursor or Claude Code, <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Railway</a> is the fastest path from code to live URL.</p>
+
+            <pre># Connect Railway CLI
+npm install -g @railway/cli
+railway login
+railway link  # link current directory to a Railway project
+railway up    # deploy</pre>
+
+            <h3>Vultr — for VPS and containerized workloads</h3>
+            <p>If you need more control — a VPS, a containerized app, or a custom server configuration — <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Vultr</a> starts at $2.50/month for a Cloud Compute instance. Good choice for AI-generated apps that need persistent server processes, background workers, or custom networking. Deploy via Docker or a simple systemd service.</p>
+
+            <h3>DigitalOcean — for managed infrastructure</h3>
+            <p><a href="https://www.kqzyfj.com/click-101694890-17192219" rel="noopener noreferrer">DigitalOcean</a> sits between Railway and Vultr in control level: App Platform handles deploys like Railway, while Droplets give you VPS-level control. Good for teams that want managed Postgres, managed Redis, and app hosting in one place. Starts at $4/month for the smallest Droplet.</p>
+
+            <h2>Step 6: Add BrainGrid for Agent mode sessions</h2>
+            <p>Once Cursor Agent mode is running on real features, the missing piece is task scoping. Agent mode is autonomous — it will touch multiple files and make decisions without prompting you at each step. Without a clear task spec, it can drift: touching files it should not, over-engineering, or solving the wrong problem.</p>
+
+            <p><a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> is built for this: write a task spec before each Agent mode session — what to build, which files to touch, what the acceptance criteria are — and hand it to the agent as its starting context. The spec keeps the agent on track. This is the same principle as a CLAUDE.md (standing context) but applied per-task rather than per-project.</p>
+
+            <h2>The complete stack at a glance</h2>
+
+            <table>
+                <tr>
+                    <th>Tool</th>
+                    <th>Role</th>
+                    <th>Cost</th>
+                    <th>Priority</th>
+                </tr>
+                <tr>
+                    <td>Cursor</td>
+                    <td>AI-native IDE, Agent mode</td>
+                    <td>Free / $20/mo Pro</td>
+                    <td>Core</td>
+                </tr>
+                <tr>
+                    <td>Claude Code CLI</td>
+                    <td>Terminal agentic assistant</td>
+                    <td>API usage ~$10–30/mo</td>
+                    <td>Core</td>
+                </tr>
+                <tr>
+                    <td>CLAUDE.md + .cursorrules</td>
+                    <td>Standing context files</td>
+                    <td>Free (your time)</td>
+                    <td>Core</td>
+                </tr>
+                <tr>
+                    <td>Railway</td>
+                    <td>Deploy layer for web apps/APIs</td>
+                    <td>Free / $5+/mo</td>
+                    <td>Core</td>
+                </tr>
+                <tr>
+                    <td>MCP servers</td>
+                    <td>Live DB / GitHub / filesystem context</td>
+                    <td>Free (open source)</td>
+                    <td>High value add-on</td>
+                </tr>
+                <tr>
+                    <td>BrainGrid</td>
+                    <td>Task spec layer for Agent mode</td>
+                    <td>Paid (see site)</td>
+                    <td>High value add-on</td>
+                </tr>
+                <tr>
+                    <td>Vultr / DigitalOcean</td>
+                    <td>VPS / managed infra for heavier workloads</td>
+                    <td>$2.50–$4+/mo</td>
+                    <td>When you outgrow Railway</td>
+                </tr>
+            </table>
+
+            <h2>Common setup mistakes</h2>
+
+            <h3>Installing tools but skipping context files</h3>
+            <p>The single most common mistake: Cursor installed, no .cursorrules. Claude Code installed, no CLAUDE.md. The AI works, but it guesses your conventions on every session. Spend one hour writing the context files and every subsequent session is noticeably better. The return on that one hour compounds across every task you ever run.</p>
+
+            <h3>Using both tools for the same thing</h3>
+            <p>Cursor and Claude Code do overlap — both can edit code, both can answer questions about the repo. The mistake is using both for the same workflow rather than splitting by context. Use Cursor for in-editor work where you want to see diffs inline. Use Claude Code CLI for terminal tasks, quick one-offs, and when you are already in a shell. Two entry points to the same repo, not two competing tools.</p>
+
+            <h3>No deploy target until the project is "ready"</h3>
+            <p>Projects that are never deployed are never finished. Connect your deploy target (Railway, Vultr) early — even if the first deploy is a hello-world endpoint. Shipping continuously forces you to keep the project in a deployable state, which catches configuration problems before they compound. It also makes it easier to share work in progress and get feedback.</p>
+
+            <h3>Agent mode without task scoping</h3>
+            <p>Running Agent mode on a vague prompt ("refactor the auth module") across a large codebase is asking for trouble. The agent will make decisions — and some of them will be wrong. Scope every Agent mode session with a clear task spec: what to build, which files are in scope, what the success condition is. BrainGrid is built to make this fast; a plain text note in your prompt works too if you are specific enough.</p>
+
+            <h2>Minimal viable stack: what to set up first</h2>
+            <p>If you are starting from scratch, do not try to set up everything at once. Start here:</p>
+
+            <ul>
+                <li>&#9744; Install Cursor, open your project, confirm completions work</li>
+                <li>&#9744; Write <code>.cursorrules</code> — stack, commands, naming conventions, never-list</li>
+                <li>&#9744; Install Claude Code CLI, authenticate, test with one prompt</li>
+                <li>&#9744; Write <code>CLAUDE.md</code> — same content as .cursorrules, adapted for CLI</li>
+                <li>&#9744; Connect Railway to your repo — one <code>railway up</code> to confirm deploy works</li>
+            </ul>
+
+            <p>That is the core. Everything else — MCP servers, BrainGrid, Vultr/DO — adds on top once the core is stable and you have a sense of where the friction is. Ship the minimal stack first. You will know what to add next once you are using it daily.</p>
+
+            <p class="related" style="margin-top: 1.5rem;"><strong>Related:</strong> <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a>, <a href="/blog/claude-code-cli-tips-2026.html">Claude Code CLI tips</a>, <a href="/blog/best-mcp-servers-cursor-claude-2026.html">Best MCP servers for Cursor and Claude Code</a>, <a href="/blog/devex-stack-2026.html">DevEx stack 2026</a>, <a href="/blog/developer-onboarding-ai-2026.html">Developer onboarding AI 2026</a>.</p>
+
+            <div class="cta-box" aria-label="Deploy and extend your stack">
+                <p><strong>Ship what you build.</strong> Connect your repo to <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Railway</a> for zero-config deploys. For VPS and heavier workloads: <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Vultr</a> from $2.50/mo or <a href="https://www.kqzyfj.com/click-101694890-17192219" rel="noopener noreferrer">DigitalOcean</a>.</p>
+                <p><strong>Tighten the agentic loop:</strong> <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a> adds task specs to every Agent mode session — so Cursor and Claude Code stay on track. <a href="https://braingrid.link/stoic" rel="noopener noreferrer">Try BrainGrid →</a></p>
             </div>
         </article>
     </main>
     <footer>
         <p>&copy; 2026 CodePipelines.com</p>
         <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/cursor-vs-copilot-2026.html">Cursor vs Copilot 2026</a> · <a href="/blog/best-ai-coding-assistant-2026.html">Best AI coding assistant 2026</a> · <a href="/blog/cursor-pricing-2026.html">Cursor pricing 2026</a></p>
-        <p>Tool we recommend for Cursor/Claude Code users: <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a>.</p>
+        <p>Deploy: <a href="https://railway.com?referralCode=ZoVi-b" rel="noopener noreferrer">Railway</a> · <a href="https://www.vultr.com/?ref=9876695-9J" rel="noopener noreferrer">Vultr</a> · Tool: <a href="https://braingrid.link/stoic" rel="noopener noreferrer">BrainGrid</a>.</p>
     </footer>
 
     <script type="application/ld+json">
@@ -139,10 +391,10 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Setting up your AI dev stack in 2026 (step-by-step)",
-        "description": "Set up your AI dev stack in 2026: step-by-step from IDE and CLI to agentic workflows and one recommended add-on.",
+        "description": "Set up your AI dev stack in 2026: step-by-step from IDE and CLI to context files, MCP servers, and deploying what you build. Cursor, Claude Code, Railway, and more.",
         "url": "https://codepipelines.com/blog/ai-dev-stack-setup-2026.html",
         "datePublished": "2026-03-02",
-        "dateModified": "2026-03-02",
+        "dateModified": "2026-03-09",
         "author": {
             "@type": "Organization",
             "name": "Code Pipelines",
