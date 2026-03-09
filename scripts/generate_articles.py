@@ -255,6 +255,7 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title}">
     <meta name="twitter:description" content="{escape_json(meta_desc)}">
+    <link rel="icon" href="/favicon.png" type="image/png">
     <style>
 {STYLES}
     </style>
