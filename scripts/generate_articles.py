@@ -15,6 +15,8 @@ UDEMY_REFERRAL_URL = "https://refer.udemy.com/bethestoic1!bf999b8a03!a?locale=en
 VULTR_REFERRAL_URL = "https://www.vultr.com/?ref=9876695-9J"  # Promo link; use ref=9876694 for standard when promo ends
 # Railway referral: $20 per referral. Use in deploy/hosting content. See BRAINGRID_AFFILIATE.md.
 RAILWAY_REFERRAL_URL = "https://railway.com?referralCode=ZoVi-b"
+# DigitalOcean referral: 10% recurring 12mo via CJ (property 101702490). Use in hosting/deploy content. See BRAINGRID_AFFILIATE.md.
+DIGITALOCEAN_REFERRAL_URL = "https://www.kqzyfj.com/click-101694890-17192219"
 
 STYLES = """        :root {
             --bg: #0d0d0d;
