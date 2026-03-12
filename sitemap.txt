@@ -26,6 +26,9 @@ https://codepipelines.com/blog/secret-scanning-tools-devops-2026.html
 https://codepipelines.com/blog/dependency-scanning-ci-2026.html
 https://codepipelines.com/blog/best-hosting-for-developers-2026.html
 https://codepipelines.com/blog/deploy-ai-apps-production-2026.html
+https://codepipelines.com/blog/best-cloud-for-multi-agent-ai-2026.html
 https://codepipelines.com/blog/best-mcp-servers-cursor-claude-2026.html
 https://codepipelines.com/blog/cursor-rules-best-practices-2026.html
 https://codepipelines.com/blog/claude-code-cli-tips-2026.html
+https://codepipelines.com/blog/best-udemy-courses-agentic-coding-2026.html
+https://codepipelines.com/blog/agentic-coding-learning-path-2026.html

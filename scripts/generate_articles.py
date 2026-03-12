@@ -224,6 +224,18 @@ ARTICLES = [
      "Claude Code CLI tips and workflows for 2026: get the most from terminal-first agentic coding.",
      "Claude Code CLI is powerful when you know the patterns. We share tips and workflows we use in 2026.",
      ["Install and first run", "Workflows that save time", "Integrating with Cursor and the rest of the stack"]),
+    ("Best cloud platforms for multi-agent AI workflows 2026 (DigitalOcean, Vultr, Railway)", "best-cloud-for-multi-agent-ai-2026",
+     "Best cloud for multi-agent AI workflows in 2026: DigitalOcean, Vultr, Railway compared for hosting agent orchestrators and AI apps.",
+     "Where to host multi-agent AI workflows and agent-built apps in 2026. We compare DigitalOcean, Vultr, and Railway so you can pick the right cloud for your stack.",
+     ["What multi-agent workloads need from cloud", "DigitalOcean vs Vultr vs Railway", "Our pick by use case"]),
+    ("Best Udemy courses for agentic coding and AI tools 2026", "best-udemy-courses-agentic-coding-2026",
+     "Best Udemy courses for agentic coding and AI tools in 2026: Cursor, Claude Code, and learning paths that get you to first commit faster.",
+     "Level up your agentic workflow with the right courses. We outline what to look for in Udemy courses for Cursor, Claude Code, and AI-assisted development in 2026.",
+     ["What to look for in AI coding courses", "Learning paths: from assistant to orchestrator", "Our recommendation"]),
+    ("From AI assistant to full orchestrator: 2026 learning path", "agentic-coding-learning-path-2026",
+     "From AI assistant to full orchestrator: a 2026 learning path for agentic coding, time-to-first-commit, and production workflows.",
+     "A staged learning path to go from inline completions to orchestrating multi-step agentic workflows with Cursor, Claude Code, and the right tooling.",
+     ["Stage 1: First agentic win", "Stage 2: Multi-file and spec-first", "Stage 3: Orchestrator habits"]),
 ]
 
 def escape_json(s):
@@ -249,7 +261,7 @@ def build_article(title, slug_stem, meta_desc, intro, sections):
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQF4GQ9ZV0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
       gtag('config', 'G-FQF4GQ9ZV0');
     </script>
