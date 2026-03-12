@@ -3,6 +3,7 @@ https://codepipelines.com/blog/
 https://codepipelines.com/blog/cursor-vs-copilot-2026.html
 https://codepipelines.com/blog/best-ai-coding-assistant-2026.html
 https://codepipelines.com/blog/cursor-pricing-2026.html
+https://codepipelines.com/blog/cursor-credit-burn-fix-2026.html
 https://codepipelines.com/blog/claude-code-vs-cursor-agent-2026.html
 https://codepipelines.com/blog/windsurf-vs-cursor-vs-claude-code-2026.html
 https://codepipelines.com/blog/tabnine-vs-cursor-vs-copilot-2026.html
